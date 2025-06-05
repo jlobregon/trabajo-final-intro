@@ -2,7 +2,7 @@
 
 ## Participantes
 * Lisandro Garbarino (113607)
-* Tomas Chirino (<padron>)
+* Tomás Chirino (113126)
 * José Lisandro Obregon (113792)
 
 ## Descripción
