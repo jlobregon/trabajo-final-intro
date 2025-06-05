@@ -8,6 +8,9 @@
 ## Descripción
 
 ## Instrucciones
+1. Renombrar *.env_example* como *.env*
+    a. Modificar las variables de entorno (opcional)
+2. Correr el proyecto en docker (por ejemplo con `docker-compose up -d`)
 
 ## Creditos/Agradecimientos
 * express
