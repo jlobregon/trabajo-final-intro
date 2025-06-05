@@ -8,6 +8,7 @@
 ## Descripción
 
 ## Instrucciones
+Para correr el programa debemos hacer `npm run dev`. Previamente debemos instalar las dependencias con `npm install`.
 
 ## Creditos/Agradecimientos
 * express
