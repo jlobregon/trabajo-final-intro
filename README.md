@@ -1,7 +1,7 @@
 # [nombre del proyecto]
 
 ## Participantes
-* Lisandro Garbarino (<padron>)
+* Lisandro Garbarino (113607)
 * Tomas Chirino (<padron>)
 * José Lisandro Obregon (113792)
 
