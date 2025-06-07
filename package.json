@@ -1,0 +1,26 @@
+{
+  "name": "trabajo-final",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --env-file=.env ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlobregon/trabajo-final-intro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlobregon/trabajo-final-intro/issues"
+  },
+  "engines": {
+    "node": ">20.6.0"
+  },
+  "homepage": "https://github.com/jlobregon/trabajo-final-intro#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

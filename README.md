@@ -11,6 +11,7 @@
 1. Renombrar *.env_example* como *.env*
     a. Modificar las variables de entorno (opcional)
 2. Correr el proyecto en docker (por ejemplo con `docker-compose up -d`)
+Para correr el programa debemos hacer `npm run dev`. Previamente debemos instalar las dependencias con `npm install`.
 
 ## Creditos/Agradecimientos
 * express
