@@ -26,3 +26,10 @@ CREATE TABLE recetas (
     imagen_url TEXT,
     FOREIGN KEY (chef_id) REFERENCES chefs(id)
 );
+
+CREATE TABLE ingredientes_recetas (
+    id SERIAL PRIMARY KEY,
+    receta_id REFERENCES recetas(id),
+    ingrediente_id REFERENCES ingredientes(id),
+    cantidad_ingredientes INT NOT NULL
+);
