@@ -3,8 +3,8 @@ const { PORT } = process.env;
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/status', (req, res) => {
+  res.send('El servidor está funcionando');
 });
 
 const recetasRoutes = require('./api/recetas');
