@@ -14,7 +14,7 @@ CREATE TABLE ingredientes (
     calorias_aprox INT NOT NULL,
     unidad_medida INT NOT NULL,
     es_vegano BOOLEAN NOT NULL
-)
+);
 
 CREATE TABLE recetas (
     id SERIAL PRIMARY KEY,
