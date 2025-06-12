@@ -8,3 +8,5 @@ const dbClient = new Pool({
     port: 5432,
     database: POSTGRES_DB
 });
+
+module.exports = dbClient;
