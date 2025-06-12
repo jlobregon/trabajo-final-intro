@@ -3,14 +3,14 @@ const { PORT } = process.env;
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/status', function (req, res) {
+  res.send('El servidor está funcionando');
 });
 
 const recetasRoutes = require('./api/recetas');
 
 app.use('/recetas', recetasRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, function () {
   console.log(`La aplicación está corriendo en http://localhost:${PORT}`);
 });
