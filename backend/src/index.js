@@ -3,6 +3,9 @@ const { PORT } = process.env;
 const recetasRoutes = require('./routes/recetas');
 
 const app = express();
+app.get('/', function (req, res) {
+    res.redirect('api/v1/status');
+});
 
 const v1Route = express.Router();
 
