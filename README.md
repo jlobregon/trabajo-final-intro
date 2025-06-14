@@ -9,9 +9,14 @@
 
 ## Instrucciones
 1. Renombrar *.env_example* como *.env*
-    a. Modificar las variables de entorno (opcional)
-2. Correr el proyecto en docker (por ejemplo con `docker-compose up -d`)
-Para correr el programa debemos hacer `npm run dev`. Previamente debemos instalar las dependencias con `npm install`.
+    * Se pueden modificar las variables de entorno (opcional)
+2. Iniciar los servicios que se desean
+    * Todos los servicios con `make start`
+    * La base de datos por separado con `make start-db`
+    * El backend por separado (requiere la db) con `make start-backend`
+
+> [!NOTE]
+> En caso de que sea necesario se puede ejecutar el comando `make clear-db` para que se borre el volumen de la base de datos
 
 ## Creditos/Agradecimientos
 * express
