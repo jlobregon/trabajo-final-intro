@@ -1,0 +1,12 @@
+:root {
+    --color-background: rgb(250, 235, 215);
+    --color-bordo: rgb(192, 57, 43);
+    --color-azul: rgb(44, 62, 80);
+    --color-dorado: rgb(226, 182, 109);
+}
+
+
+
+body{
+    background-color: var(--color-background);
+}
