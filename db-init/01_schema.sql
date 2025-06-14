@@ -19,17 +19,17 @@ CREATE TABLE ingredientes (
 CREATE TABLE recetas (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    chef_id INT NOT NULL,
+    chef_id INT NOT NULL REFERENCES chefs(id),
     descripcion TEXT,
     nivel_dificultad INT NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
     tiempo_estimado INT,
-    imagen_url TEXT,
-    FOREIGN KEY (chef_id) REFERENCES chefs(id)
+    imagen_url TEXT
 );
 
 CREATE TABLE ingredientes_recetas (
     id SERIAL PRIMARY KEY,
-    receta_id REFERENCES recetas(id),
-    ingrediente_id REFERENCES ingredientes(id),
+    receta_id INT REFERENCES recetas(id),
+    ingrediente_id INT REFERENCES ingredientes(id),
     cantidad_ingredientes INT NOT NULL
 );
