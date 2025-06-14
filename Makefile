@@ -19,3 +19,6 @@ stop-backend:
 
 stop: stop-db stop-backend
 	@echo "Se detuvieron todos los servicios"
+
+restart: stop start
+	@echo "Se finalizó el reinicio"
