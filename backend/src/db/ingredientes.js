@@ -14,7 +14,7 @@ async function getIngredienteById(id){
     try {
         const result = await dbClient.query('SELECT * FROM ingredientes WHERE id = $1', [id]);
 
-        if(result.rowCount === 0){
+        if(result.rows.length === 0){
             throw new Error('Ingrediente no encontrado');
         }
 
