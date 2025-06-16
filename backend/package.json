@@ -2,10 +2,9 @@
   "name": "trabajo-final",
   "version": "0.0.0",
   "description": "",
-  "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node --env-file=.env ."
+    "dev": "node ."
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,7 @@
   },
   "homepage": "https://github.com/jlobregon/trabajo-final-intro#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pg": "^8.16.0"
   }
 }
