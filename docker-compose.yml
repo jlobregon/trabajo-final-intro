@@ -35,6 +35,8 @@ services:
     container_name: frontend
     ports:
       - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    volumes:
+      - ./frontend:/app
 
 volumes:
   pgdata:
