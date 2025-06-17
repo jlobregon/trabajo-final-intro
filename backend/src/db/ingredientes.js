@@ -12,6 +12,9 @@ async function getAllIngredientes() {
 
 async function getIngredienteById(id){
     try {
+        if(!id){
+            throw new Error('No se encuentra el Id del ingrediente');
+        }
         const result = await dbClient.query('SELECT * FROM ingredientes WHERE id = $1', [id]);
 
         if(result.rows.length === 0){
@@ -25,7 +28,24 @@ async function getIngredienteById(id){
     }
 }
 
+async function createIngrediente(ingrediente){
+    try {
+        const { nombre, categoria, calorias_aprox, unidad_medida, es_vegano } = ingrediente;
+
+        const result = await dbClient.query(
+            'INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES ($1, $2, $3. $4, $5) RETURNING *',
+            [nombre, categoria, calorias_aprox, unidad_medida, es_vegano]
+        );
+
+        return result.rows[0];
+    } catch (error) {
+        console.error('Error creando el ingrediente: ', error);
+        throw new Error('No se pudo crear el ingrediente');
+    }
+}   
+
 module.exports = {
     getAllIngredientes,
-    getIngredienteById
+    getIngredienteById,
+    createIngrediente
 };
