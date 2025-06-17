@@ -3,6 +3,7 @@ const { PORT } = process.env;
 const recetasRoutes = require('./routes/recetas');
 
 const app = express();
+app.use(express.json());
 app.get('/', function (req, res) {
     res.redirect('api/v1/status');
 });
