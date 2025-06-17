@@ -10,6 +10,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url("../img/rata1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body{
