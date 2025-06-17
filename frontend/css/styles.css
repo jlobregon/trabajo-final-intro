@@ -5,6 +5,29 @@
     --color-dorado: rgb(238, 219, 193);
 }
 
+.titulo-elementos {
+    color: var(--color-azul);
+}
+
+#titulo-principal, #boton-chefs, #boton-recetas {
+    color: var(--color-dorado);
+    text-shadow: 2px 2px 2px rgb(98, 52, 15);
+}
+
+#titulo-principal {
+    font-size: 3rem;
+}
+
+.tabs{
+    flex-wrap: wrap;
+}
+
+#boton-chefs, #boton-recetas {
+    font-size: 1.8rem;
+    background-color: var(--color-bordo);
+    margin: 1rem
+}
+
 #hero-principal {
     padding-top: 1rem;
     display: flex;
