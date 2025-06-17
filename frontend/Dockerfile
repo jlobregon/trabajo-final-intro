@@ -6,4 +6,4 @@ RUN npm install --global http-server
 
 COPY . .
 
-CMD ["http-server", ".", "--cors", "--port", "${FRONTEND_PORT}"]
+CMD ["http-server", ".", "--cors", "--port", "8080"]
