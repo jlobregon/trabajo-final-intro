@@ -5,6 +5,14 @@
     --color-dorado: rgb(238, 219, 193);
 }
 
+#hero-principal {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 body{
     background-color: var(--color-background);
+    min-height: 100vh;
 }
