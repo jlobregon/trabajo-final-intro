@@ -26,7 +26,25 @@ async function getRecetaById(id) {
     }
 }
 
+async function createReceta(receta) {
+    try {
+        const { nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url } = receta;
+        if (!nombre || !chef_id || !nivel_dificultad || !categoria) {
+            throw new Error('Faltan campos obligatorios');
+        }
+        const result = await dbClient.query(
+            'INSERT INTO recetas (nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            [nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url]
+        );
+        return result.rows[0];
+    } catch (error) {
+        console.error('Error al crear la receta:', error);
+        throw new Error('No se pudo crear la receta');
+    }
+}
+
 module.exports = {
     getAllRecetas,
-    getRecetaById
+    getRecetaById,
+    createReceta
 };

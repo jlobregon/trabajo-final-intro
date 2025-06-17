@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllRecetas, getRecetaById } = require('../db/recetas');
+const { getAllRecetas, getRecetaById, createReceta } = require('../db/recetas');
 
 router.get('/', async function (req, res) {
     try {
@@ -28,6 +28,17 @@ router.get('/:id', async function (req, res) {
             return res.status(400).json({ error: `Hubo un error de tipo de dato con: ${error.cause}` });
         }
         res.status(404).json({ error: 'Receta no encontrada' });
+    }
+});
+
+router.post('/', async function (req, res) {
+    const receta = req.body;
+    try {
+        const result = await createReceta(receta);
+        res.status(201).json(result);
+    } catch (error) {
+        console.error('Error al crear la receta:', error);
+        res.status(400).json({ error: 'Error al crear la receta' });
     }
 });
 
