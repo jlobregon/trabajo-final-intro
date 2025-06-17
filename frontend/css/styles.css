@@ -25,7 +25,16 @@
 #boton-chefs, #boton-recetas {
     font-size: 1.8rem;
     background-color: var(--color-bordo);
-    margin: 1rem
+    margin: 1rem;
+}
+
+.card {
+    border-radius:12px;
+    overflow: hidden;
+}
+
+#division-recetas-chefs {
+    background-color: var(--color-bordo);
 }
 
 #hero-principal {
