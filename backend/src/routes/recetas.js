@@ -1,45 +1,42 @@
 const express = require('express');
 const router = express.Router();
-const { getAllRecetas, getRecetaById, createReceta } = require('../db/recetas');
+const { getAllRecetas, getRecetaById, createReceta, updateReceta, deleteReceta } = require('../db/recetas');
+const { NotFoundError, BadRequestError } = require('../errors.js');
+const { validateBody, validateParam} = require('../middleware/validate.js');
+const { idSchema, recetaSchema, recetaSchemaRequired } = require('../schemas.js');
 
 router.get('/', async function (req, res) {
-    try {
-        const result = await getAllRecetas();
-        res.json(result);
-    } catch (error) {
-        res.status(500).json({ error: 'Error interno del servidor' });
-    }
+    const result = await getAllRecetas();
+    if (!result || result.length === 0) throw new NotFoundError('No hay recetas disponibles', 'La lista de recetas está vacía.');
+    res.json(result);
 });
 
-router.get('/:id', async function (req, res) {
+router.get('/:id', validateParam(idSchema, 'id'), async function (req, res) {
     const { id } = req.params;
-    try {
-        if (isNaN(id)) {
-            const error = new TypeError('El ID no es un número');
-            error.cause = 'id';
-            throw error;
-        }
-        const result = await getRecetaById(id);
-        res.json(result);
-    } catch (error) {
-        console.error('Error al procesar la petición:', error);
-        if (error instanceof TypeError)
-        {
-            return res.status(400).json({ error: `Hubo un error de tipo de dato con: ${error.cause}` });
-        }
-        res.status(404).json({ error: 'Receta no encontrada' });
-    }
+    const result = await getRecetaById(id);
+    if (!result) throw new NotFoundError('Receta no encontrada', `La receta con id ${id} no existe.`);
+    res.json(result);
 });
 
-router.post('/', async function (req, res) {
+router.post('/', validateBody(recetaSchemaRequired), async function (req, res) {
     const receta = req.body;
-    try {
-        const result = await createReceta(receta);
-        res.status(201).json(result);
-    } catch (error) {
-        console.error('Error al crear la receta:', error);
-        res.status(400).json({ error: 'Error al crear la receta' });
-    }
+    const result = await createReceta(receta);
+    res.status(201).json(result);
+});
+
+router.patch('/:id', validateParam(idSchema, 'id'), validateBody(recetaSchema), async function (req, res) {
+    const { id } = req.params;
+    const receta = req.body;
+    const result = await updateReceta(id, receta);
+    if (!result) throw new NotFoundError('Receta no encontrada', `No se pudo actualizar la receta con id ${id}.`);
+    res.json(result);
+});
+
+router.delete('/:id', validateParam(idSchema, 'id'), async function (req, res) {
+    const { id } = req.params;
+    const result = await deleteReceta(id);
+    if (!result) throw new NotFoundError('Receta no encontrada', `No se pudo eliminar la receta con id ${id}.`);
+    res.json(result);
 });
 
 module.exports = router;
