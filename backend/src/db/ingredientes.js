@@ -42,10 +42,37 @@ async function createIngrediente(ingrediente){
         console.error('Error creando el ingrediente: ', error);
         throw new Error('No se pudo crear el ingrediente');
     }
-}   
+}
+
+async function deleteIngrediente(id){
+    const result = await dbClient.query('DELETE FROM ingredientes WHERE id = $1', [id]);
+    return result.rows[0];
+}
+
+async function updateIngrediente(id, ingrediente){
+    try {
+        const { nombre, categoria, calorias_aprox, unidad_medida, es_vegano } = ingrediente;
+
+        const result = await dbClient.query(
+            'UPDATE ingredientes SET nombre = $2, categoria = $3, calorias_aprox = $4, unidad_medida = $5, es_vegano = $6 WHERE id = $1',
+            [id, nombre, categoria, calorias_aprox, unidad_medida, es_vegano]
+        );
+
+        if(result.rows.length === 0){
+            throw new Error('Ingrediente no encontrado');
+        }
+
+        return result.rows[0];
+    } catch (error) {
+        console.error('Error actualizando el ingrediente: ', error);
+        throw new Error('No se pudo actualizar el ingrediente');
+    }
+}
 
 module.exports = {
     getAllIngredientes,
     getIngredienteById,
-    createIngrediente
+    createIngrediente,
+    deleteIngrediente,
+    updateIngrediente
 };

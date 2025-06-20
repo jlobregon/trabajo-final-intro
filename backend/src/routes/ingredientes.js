@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllIngredientes, getIngredienteById, createIngrediente } = require('../db/ingredientes');
+const { getAllIngredientes, getIngredienteById, createIngrediente, deleteIngrediente, updateIngrediente } = require('../db/ingredientes');
 
 router.get('/', async function (req, res) {
         const result = await getAllIngredientes();
@@ -15,6 +15,17 @@ router.get('/:id', async function (req, res) {
 router.post('/', async function (req, res){
     const ingrediente = req.body;
     const result = await createIngrediente(ingrediente);
+    res.json(result);
+});
+
+router.delete('/:id', async function (req, res){
+    const result = await deleteIngrediente(req.params.id);
+    res.json(result);
+});
+
+router.put('/:id', async function (req, res){
+    const ingrediente = req.body;
+    const result = await updateIngrediente(req.params.id, ingrediente);
     res.json(result);
 });
 
