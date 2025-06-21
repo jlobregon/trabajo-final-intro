@@ -5,10 +5,10 @@ start-db:
 	docker compose up postgres -d
 
 start-backend:
-	docker compose up backend -d --build
+	docker compose up backend -d
 
 start-frontend:
-	docker compose up frontend -d --build
+	docker compose up frontend -d
 
 clear-db:
 	docker compose down -v postgres
