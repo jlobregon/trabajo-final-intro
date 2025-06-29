@@ -2,7 +2,7 @@ const { BadRequestError } = require('../errors');
 
 function validateBody(schema) {
     return function (req, res, next) {
-        const data = req.body;//{ body: req.body, params: req.params, query: req.query };
+        const data = req.body;
         const { error } = schema.validate(data, { abortEarly: false });
         if (error) {
             const details = error.details.map(d => ({ field: d.path, msg: d.message }));
