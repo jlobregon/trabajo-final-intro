@@ -1,0 +1,55 @@
+:root {
+    --color-background: rgb(250, 235, 215);
+    --color-bordo: rgb(192, 57, 43);
+    --color-azul: rgb(44, 62, 80);
+    --color-dorado: rgb(238, 219, 193);
+}
+
+.titulo-elementos {
+    color: var(--color-azul);
+}
+
+#titulo-principal, #boton-chefs, #boton-recetas {
+    color: var(--color-dorado);
+    text-shadow: 2px 2px 2px rgb(98, 52, 15);
+}
+
+#titulo-principal {
+    font-size: 3rem;
+}
+
+.tabs{
+    flex-wrap: wrap;
+}
+
+#boton-chefs, #boton-recetas {
+    font-size: 1.8rem;
+    background-color: var(--color-bordo);
+    margin: 1rem;
+}
+
+.card {
+    border-radius:12px;
+    overflow: hidden;
+}
+
+#division-recetas-chefs {
+    background-color: var(--color-bordo);
+}
+
+#hero-principal {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("../img/rata1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body{
+    background-color: var(--color-background);
+    min-height: 100vh;
+}
