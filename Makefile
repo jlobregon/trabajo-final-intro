@@ -28,3 +28,6 @@ stop: stop-db stop-backend stop-frontend
 
 restart: stop start
 	@echo "Se finalizó el reinicio"
+
+build:
+	docker compose build
