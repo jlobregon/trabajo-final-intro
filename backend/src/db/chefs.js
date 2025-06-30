@@ -18,7 +18,28 @@ async function createChef(chef) {
     );
     return result.rows[0];
 }
+
+async function updateChef(id, chef) {
+    const entries = Object.entries(chef).filter(([_, value]) => value !== undefined);
+    const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
+    const values = entries.map(([_, value]) => value);
+    values.push(id);
+    const result = await dbClient.query(
+        `UPDATE chefs SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
+        values
+    );
+    return result.rows[0];
+}
+
+async function deleteChef(id) {
+    const result = await dbClient.query('DELETE FROM chefs WHERE id = $1 RETURNING *', [id]);
+    return result.rows[0];
+}
+
 module.exports = {
     getAllChefs,
-    getChefById
+    getChefById,
+    createChef,
+    updateChef,
+    deleteChef
 };
