@@ -13,7 +13,7 @@ async function getIngredienteById(id){
 async function createIngrediente(ingrediente){
     const { nombre, categoria, calorias_aprox, unidad_medida, es_vegano } = ingrediente;
     const result = await dbClient.query(
-        'INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES ($1, $2, $3. $4, $5) RETURNING *',
+        'INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES ($1, $2, $3, $4, $5) RETURNING *',
         [nombre, categoria, calorias_aprox, unidad_medida, es_vegano]
     );
     return result.rows[0];
