@@ -1,16 +1,45 @@
 const dbClient = require('./client.js');
 
 async function getAllChefs() {
-    const result = await dbClient.query('SELECT * FROM recetas');
+    const result = await dbClient.query('SELECT * FROM chefs');
     return result.rows;
 }
 
-async function getChef(id) {
-    const result = await dbClient.query('SELECT * FROM recetas WHERE id = $1', [id]);
+async function getChefById(id) {
+    const result = await dbClient.query('SELECT * FROM chefs WHERE id = $1', [id]);
+    return result.rows[0];
+}
+
+async function createChef(chef) {
+    const { nombre, acerca_de, especialidad, localidad, imagen_url } = chef;
+    const result = await dbClient.query(
+        'INSERT INTO chefs (nombre, acerca_de, especialidad, localidad, imagen_url) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+        [nombre, acerca_de, especialidad, localidad, imagen_url]
+    );
+    return result.rows[0];
+}
+
+async function updateChef(id, chef) {
+    const entries = Object.entries(chef).filter(([_, value]) => value !== undefined);
+    const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
+    const values = entries.map(([_, value]) => value);
+    values.push(id);
+    const result = await dbClient.query(
+        `UPDATE chefs SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
+        values
+    );
+    return result.rows[0];
+}
+
+async function deleteChef(id) {
+    const result = await dbClient.query('DELETE FROM chefs WHERE id = $1 RETURNING *', [id]);
     return result.rows[0];
 }
 
 module.exports = {
     getAllChefs,
-    getChef
+    getChefById,
+    createChef,
+    updateChef,
+    deleteChef
 };
