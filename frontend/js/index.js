@@ -3,6 +3,7 @@ columnas[0] = document.getElementById('recetas-cl-1');
 columnas[1] = document.getElementById('recetas-cl-2');
 columnas[2] = document.getElementById('recetas-cl-3');
 let currentIndex = 0;
+const contenedorChefs = document.getElementById('contenedor-chefs');
 
 Promise.all([
     fetch('http://localhost:3000/api/v1/recetas').then(result => result.json()),
@@ -37,5 +38,17 @@ Promise.all([
         if (currentIndex === 3) { currentIndex = 0 };
         columnas[currentIndex].appendChild(elementoReceta);
         currentIndex++;
-    });
+        });
+        chefs.forEach(chef => {
+            const elementoChef = document.createElement('div');
+            elementoChef.classList.add('column', 'is-3-desktop', 'has-text-centered');
+            elementoChef.innerHTML = `
+                <figure class="image is-1by1 receta-imagen">
+                    <img class="is-rounded" src="${chef.imagen_url || 'img/perfil-default.png'}" alt="${chef.nombre}">
+                </figure>
+                <p class="title is-5">${chef.nombre}</p>
+                <p class="subtitle is-6">${chef.especialidad || chef.localidad}</p>
+            `;
+            contenedorChefs.appendChild(elementoChef);
+        });
 });
