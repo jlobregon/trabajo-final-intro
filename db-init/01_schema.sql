@@ -29,7 +29,7 @@ CREATE TABLE recetas (
 
 CREATE TABLE ingredientes_recetas (
     id SERIAL PRIMARY KEY,
-    receta_id INT REFERENCES recetas(id),
-    ingrediente_id INT REFERENCES ingredientes(id),
+    receta_id INT REFERENCES recetas(id) ON DELETE CASCADE,
+    ingrediente_id INT REFERENCES ingredientes(id) ON DELETE CASCADE,
     cantidad_ingredientes INT NOT NULL
 );
