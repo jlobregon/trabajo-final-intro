@@ -1,6 +1,7 @@
 const express = require('express');
 const { PORT } = process.env;
 const recetasRoutes = require('./routes/recetas');
+const ingredienteRoutes = require('./routes/ingredientes');
 const chefsRoutes = require('./routes/chefs');
 
 const app = express();
@@ -16,6 +17,7 @@ v1Route.get('/status', function (req, res) {
 });
 
 v1Route.use('/recetas', recetasRoutes);
+v1Route.use('/ingredientes', ingredienteRoutes);
 v1Route.use('/chefs', chefsRoutes);
 
 app.use('/api/v1', v1Route);
