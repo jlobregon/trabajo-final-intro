@@ -39,10 +39,28 @@ const ingredientesSchemaRequired = Joi.object({
     es_vegano: Joi.bool().required()
 });
 
+const chefsSchema = Joi.object({
+    nombre: Joi.string().max(80),
+    acerca_de: Joi.string().max(200),
+    especialidad: Joi.string().max(50),
+    localidad: Joi.string().max(50),
+    imagen_url: Joi.string()
+});
+
+const chefsSchemaRequired = Joi.object({
+    nombre: Joi.string().max(80).required(),
+    acerca_de: Joi.string().max(200),
+    especialidad: Joi.string().max(50),
+    localidad: Joi.string().max(50).required(),
+    imagen_url: Joi.string()
+});
+
 module.exports = {
     idSchema,
     recetaSchema,
     recetaSchemaRequired,
     ingredientesSchema,
-    ingredientesSchemaRequired
+    ingredientesSchemaRequired,
+    chefsSchema,
+    chefsSchemaRequired
 }
