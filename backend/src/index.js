@@ -3,9 +3,11 @@ const { PORT } = process.env;
 const recetasRoutes = require('./routes/recetas');
 const ingredienteRoutes = require('./routes/ingredientes');
 const chefsRoutes = require('./routes/chefs');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.get('/', function (req, res) {
   res.redirect('api/v1/status');
 });
