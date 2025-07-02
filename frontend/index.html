@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Las Recetas de Gusteau</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <section class="hero is-medium header-section">
+        <div id="hero-principal" class="hero-body">
+            <div id="contenido-hero" class="container has-text-centered">
+                <img src="img/gusteau.png" class="header-image" alt="Gusteau">
+                <h1 id="titulo-principal" class="title is-1">Cualquiera puede cocinar</h1>
+                <div id="botones-hero" class="tabs is-centered">
+                    <ul>
+                        <li><a class="button" id="boton-chefs">Chefs</a></li>
+                        <li><a class="button" id="boton-recetas">Recetas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="recetas-destacadas">
+        <div class="container">
+            <h2 class="title is-4 titulo-elementos">Recetas populares</h2>
+            <div id="contenedor-recetas" class="columns is-multiline">
+            </div>
+            <hr class="my-5" id="division-recetas-chefs">
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-4 titulo-elementos">Chefs populares</h2>
+            <div id="contenedor-chefs" class="columns is-multiline">
+            </div>
+        </div>
+    </section>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
