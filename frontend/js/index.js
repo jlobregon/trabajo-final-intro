@@ -15,7 +15,7 @@ Promise.all([
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-1by1 receta-imagen">
-                    <img src="${receta.imagen_url}" alt="Receta">
+                    <img src="${receta.imagen_url || 'img/receta-default.jpg'}" alt="Receta">
                     </figure>
                 </div>
                 <div class="card-content">
