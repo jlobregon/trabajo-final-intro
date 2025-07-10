@@ -27,7 +27,7 @@ const ingredientesSchema = Joi.object({
     nombre: Joi.string().max(80),
     categoria: Joi.string().max(50),
     calorias_aprox: Joi.number().integer(),
-    unidad_medida: Joi.number().integer(),
+    unidad_medida: Joi.string().max(3),
     es_vegano: Joi.bool()
 });
 
@@ -35,7 +35,7 @@ const ingredientesSchemaRequired = Joi.object({
     nombre: Joi.string().max(80).required(),
     categoria: Joi.string().max(50),
     calorias_aprox: Joi.number().integer().required(),
-    unidad_medida: Joi.number().integer().required(),
+    unidad_medida: Joi.string().max(3),
     es_vegano: Joi.bool().required()
 });
 

@@ -7,15 +7,15 @@ INSERT INTO chefs (nombre, acerca_de, localidad) VALUES
 
 -- Ingredientes
 INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES
-('Leche de vaca', 'Leche', 32, 0, FALSE),
-('Queso Emmental', 'Lácteos', 350, 0, FALSE),
-('Tomate', 'Verdura', 18, 0, TRUE),
-('Berenjena', 'Verdura', 25, 0, TRUE),
-('Calabacín', 'Verdura', 17, 0, TRUE),
-('Pimiento rojo', 'Verdura', 31, 0, TRUE),
-('Aceite de oliva', 'Aceite', 884, 0, TRUE),
-('Ajo', 'Condimento', 149, 0, TRUE),
-('Hierbas provenzales', 'Condimento', 250, 0, TRUE);
+('Leche de vaca', 'Leche', 32, 'ml', FALSE),
+('Queso Emmental', 'Lácteos', 350, 'gr', FALSE),
+('Tomate', 'Verdura', 18, 'gr', TRUE),
+('Berenjena', 'Verdura', 25, 'gr', TRUE),
+('Calabacín', 'Verdura', 17, 'gr', TRUE),
+('Pimiento rojo', 'Verdura', 31, 'gr', TRUE),
+('Aceite de oliva', 'Aceite', 884, 'ml', TRUE),
+('Ajo', 'Condimento', 149, 'gr', TRUE),
+('Hierbas provenzales', 'Condimento', 250, 'gr', TRUE);
 
 -- Recetas
 INSERT INTO recetas (nombre, chef_id, nivel_dificultad, categoria) VALUES
