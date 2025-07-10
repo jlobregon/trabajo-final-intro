@@ -48,18 +48,63 @@ async function createReceta(receta) {
         'INSERT INTO recetas (nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
         [nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url]
     );
+    const ids_receta = [];
+    const ids_ingrediente = [];
+    const cantidades = [];
+    receta.ingredientes.forEach(function (item) {
+        ids_receta.push(result.rows[0].id);
+        ids_ingrediente.push(item.id);
+        cantidades.push(item.cantidad);
+    });
+    const ingredientes = await dbClient.query('INSERT INTO ingredientes_recetas (receta_id, ingrediente_id, cantidad_ingredientes) SELECT * FROM UNNEST ($1::int[], $2::int[], $3::int[]) RETURNING *',
+        [ids_receta, ids_ingrediente, cantidades]
+    );
+    result.rows[0].ingredientes = ingredientes.rows.map(function (item) {
+        return { ingrediente_id: item.ingrediente_id, cantidad_ingredientes: item.cantidad_ingredientes }
+    });
     return result.rows[0];
 }
 
 async function updateReceta(id, receta) {
-    const entries = Object.entries(receta).filter(([_, value]) => value !== undefined);
-    const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
-    const values = entries.map(([_, value]) => value);
-    values.push(id);
-    const result = await dbClient.query(
-        `UPDATE recetas SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
-        values
-    );
+    let result = { rows: [] };
+
+    let ingredientes = receta.ingredientes;
+    receta.ingredientes = undefined;
+    if (Object.keys(receta).filter(function (value) { value.length > 0 }).length) {
+        const entries = Object.entries(receta).filter(([_, value]) => value !== undefined);
+        const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
+        const values = entries.map(([_, value]) => value);
+        values.push(id);
+        console.log(entries, columns, values);
+        result = await dbClient.query(
+            `UPDATE recetas SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
+            values
+        );
+    }
+
+    if (ingredientes) {
+        await dbClient.query('DELETE FROM ingredientes_recetas ir WHERE ir.receta_id = $1', [id]);
+        const ids_receta = [];
+        const ids_ingrediente = [];
+        const cantidades = [];
+        ingredientes.forEach(function (item) {
+            ids_receta.push(id);
+            ids_ingrediente.push(item.id);
+            cantidades.push(item.cantidad);
+        });
+        ingredientes = await dbClient.query('INSERT INTO ingredientes_recetas (receta_id, ingrediente_id, cantidad_ingredientes) SELECT * FROM UNNEST ($1::int[], $2::int[], $3::int[]) RETURNING *',
+            [ids_receta, ids_ingrediente, cantidades]
+        );
+        if (!result.rows || result.rows.length === 0)
+        {
+            // If no update occurred, fetch the receta to return
+            const recetaResult = await dbClient.query('SELECT * FROM recetas WHERE id = $1', [id]);
+            result.rows = recetaResult.rows;
+        }
+        result.rows[0].ingredientes = ingredientes.rows.map(function (item) {
+            return { ingrediente_id: item.ingrediente_id, cantidad_ingredientes: item.cantidad_ingredientes }
+        });
+    }
     return result.rows[0];
 }
 
