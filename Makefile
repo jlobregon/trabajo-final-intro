@@ -26,6 +26,15 @@ stop-frontend:
 stop: stop-db stop-backend stop-frontend
 	@echo "Se detuvieron todos los servicios"
 
+restart-db: stop-db start-db
+	@echo "Se finalizó el reinicio"
+
+restart-backend: stop-backend start-backend
+	@echo "Se finalizó el reinicio"
+
+restart-frontend: stop-frontend start-frontend
+	@echo "Se finalizó el reinicio"
+
 restart: stop start
 	@echo "Se finalizó el reinicio"
 
