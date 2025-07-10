@@ -7,7 +7,8 @@ async function getAllRecetas() {
                 json_build_object(
                 'ingrediente_id', i.id,
                 'nombre_ingrediente', i.nombre,
-                'cantidad_ingredientes', ir.cantidad_ingredientes
+                'cantidad_ingredientes', ir.cantidad_ingredientes,
+                'unidad_medida', i.unidad_medida 
                 )
             ) AS ingredientes
         FROM recetas r
@@ -26,7 +27,8 @@ async function getRecetaById(id) {
                 json_build_object(
                 'ingrediente_id', i.id,
                 'nombre_ingrediente', i.nombre,
-                'cantidad_ingredientes', ir.cantidad_ingredientes
+                'cantidad_ingredientes', ir.cantidad_ingredientes,
+                'unidad_medida', i.unidad_medida 
                 )
             ) AS ingredientes
         FROM recetas r
