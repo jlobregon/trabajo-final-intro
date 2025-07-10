@@ -1,8 +1,12 @@
 :root {
-    --color-background: rgb(250, 235, 215);
+    --color-background: rgb(249, 242, 233);
     --color-bordo: rgb(192, 57, 43);
     --color-azul: rgb(44, 62, 80);
     --color-dorado: rgb(238, 219, 193);
+}
+
+h1, h2, .title {
+  font-family: 'Playfair Display', serif;
 }
 
 .titulo-elementos {
@@ -22,12 +26,6 @@
     flex-wrap: wrap;
 }
 
-#boton-chefs, #boton-recetas {
-    font-size: 1.8rem;
-    background-color: var(--color-bordo);
-    margin: 1rem;
-}
-
 .card {
     border-radius:12px;
     overflow: hidden;
@@ -37,19 +35,83 @@
     background-color: var(--color-bordo);
 }
 
+.tarjeta-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.buscador-elemento {
+  height: 2.75em; 
+}
+
+.boton-filtro {
+  padding: 0;
+  width: 2.75em; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icono-busqueda, .icono-filtro {
+  max-height: 1.4em;
+  width: auto;
+}
+
 #hero-principal {
-    padding-top: 1rem;
+    padding-top: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("../img/rata1.jpg");
+    background-image: url("../img/rata1-3.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+.nombre-recetas{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: #fefaf6;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#modal-cuerpo {
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal;  
+}
+
+.boton-pagina-navbar{
+    color: white
+}
+
+.autor-receta{
+    color: var(--color-azul);
+    text-decoration: none;
+}
+
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 body{
     background-color: var(--color-background);
     min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
 }
