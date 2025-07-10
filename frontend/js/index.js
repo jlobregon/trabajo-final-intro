@@ -45,4 +45,5 @@ Promise.all([
         `;
         contenedorRecetas.appendChild(tarjeta);
     });
+    modalesRecetas(recetas);
 });
