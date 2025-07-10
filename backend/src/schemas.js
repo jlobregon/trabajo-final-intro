@@ -10,7 +10,8 @@ const recetaSchema = Joi.object({
     nivel_dificultad: Joi.number().integer(),
     categoria: Joi.string().max(50),
     tiempo_estimado: Joi.number().integer(),
-    imagen_url: Joi.string()
+    imagen_url: Joi.string(),
+    ingredientes: Joi.array().items(Joi.object({ id: idSchema, cantidad: Joi.number().integer() }))
 });
 
 const recetaSchemaRequired = Joi.object({
@@ -20,7 +21,8 @@ const recetaSchemaRequired = Joi.object({
     nivel_dificultad: Joi.number().integer().required(),
     categoria: Joi.string().max(50).required(),
     tiempo_estimado: Joi.number().integer(),
-    imagen_url: Joi.string()
+    imagen_url: Joi.string(),
+    ingredientes: Joi.array().items(Joi.object({ id: idSchema, cantidad: Joi.number().integer() })).required()
 });
 
 const ingredientesSchema = Joi.object({
