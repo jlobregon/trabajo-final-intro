@@ -39,7 +39,27 @@
             </div>
         </div>
     </section>
-    <script src="js/index.js"></script>
+
+    <div id="modal-receta" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title" id="modal-titulo">Título receta</p>
+                    <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body" id="modal-cuerpo"></section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger">Editar</button>
+                <button class="button is-danger">Borrar</button>
+            </footer>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p><strong>Las Recetas de Gusteau</strong> por APIcultores, usando Bulma.</p>
+        </div>
+    </footer>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>
