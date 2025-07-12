@@ -10,16 +10,55 @@
 </head>
 
 <body>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item boton-pagina-navbar" href="index.html">
+                <img src="img/gusteau-logo-tipografia.png" alt="Gusteau Logo" class="logo-navbar">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item boton-pagina-navbar" href="recetas.html">Recetas</a>
+                <a class="navbar-item boton-pagina-navbar" href="chefs.html">Chefs</a>
+                <a class="navbar-item boton-pagina-navbar" href="index.html">Sobre nosotros</a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="crear-receta.html"><strong>+ Crear receta</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <section class="hero is-medium header-section">
-        <div id="hero-principal" class="hero-body">
+        <div id="hero-principal" class="hero-body is-flex is-align-items-center">
             <div id="contenido-hero" class="container has-text-centered">
-                <img src="img/gusteau.png" class="header-image" alt="Gusteau">
-                <h1 id="titulo-principal" class="title is-1">Cualquiera puede cocinar</h1>
-                <div id="botones-hero" class="tabs is-centered">
-                    <ul>
-                        <li><a class="button" id="boton-chefs">Chefs</a></li>
-                        <li><a class="button" id="boton-recetas">Recetas</a></li>
-                    </ul>
+                <div class="columns is-vcentered ">
+                    <div class="column is-half">
+                        <img src="img/gusteau-logo-principal.png" class="header-image" alt="Gusteau">
+                        <h1 id="titulo-principal" class="title is-1">Cualquiera puede cocinar</h1>
+                        <div class="field has-addons">
+                            <div class="control is-expanded has-icons-left">
+                                <input class="input buscador-elemento" type="text" placeholder="Buscar recetas...">
+                                <span class="icon is-left">
+                                    <img src="img/icono-busqueda.png" alt="Buscar" class="icono-busqueda buscador-elemento">
+                                </span>
+                            </div>
+                            <div class="control">
+                                <button class="button buscador-elemento boton-filtro">
+                                    <img src="img/boton-filtro.png" alt="Filtros" class="icono-filtro">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
