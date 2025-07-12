@@ -2,35 +2,35 @@ const dbClient = require('./client.js');
 
 async function getAllRecetas() {
     const result = await dbClient.query(
-        `SELECT r.id, r.nombre, r.descripcion, r.categoria, r.nivel_dificultad, r.tiempo_estimado, r.imagen_url,
-            json_agg(
-                json_build_object(
+        `SELECT r.id, r.nombre, r.chef_id, r.descripcion, r.categoria, r.nivel_dificultad, r.tiempo_estimado, r.imagen_url,
+        json_agg(
+            json_build_object(
                 'ingrediente_id', i.id,
                 'nombre_ingrediente', i.nombre,
                 'cantidad_ingredientes', ir.cantidad_ingredientes,
                 'unidad_medida', i.unidad_medida 
-                )
-            ) AS ingredientes
+            )
+        ) AS ingredientes
         FROM recetas r
         JOIN ingredientes_recetas ir ON ir.receta_id = r.id
         JOIN ingredientes i ON i.id = ir.ingrediente_id
         GROUP BY r.id
         ORDER BY r.id`
-);
+    );
     return result.rows;
 }
 
 async function getRecetaById(id) {
     const result = await dbClient.query(
-        `SELECT r.id, r.nombre, r.descripcion, r.categoria, r.nivel_dificultad, r.tiempo_estimado, r.imagen_url,
-            json_agg(
-                json_build_object(
+        `SELECT r.id, r.nombre, r.chef_id, r.descripcion, r.categoria, r.nivel_dificultad, r.tiempo_estimado, r.imagen_url,
+        json_agg(
+            json_build_object(
                 'ingrediente_id', i.id,
                 'nombre_ingrediente', i.nombre,
                 'cantidad_ingredientes', ir.cantidad_ingredientes,
                 'unidad_medida', i.unidad_medida 
-                )
-            ) AS ingredientes
+            )
+        ) AS ingredientes
         FROM recetas r
         JOIN ingredientes_recetas ir ON ir.receta_id = r.id
         JOIN ingredientes i ON i.id = ir.ingrediente_id
