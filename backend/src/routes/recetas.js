@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllRecetas, getRecetaById, createReceta, updateReceta, deleteReceta } = require('../db/recetas');
+const { getAllRecetas, getRecetaById, getRecetaByChefId, createReceta, updateReceta, deleteReceta } = require('../db/recetas');
 const { NotFoundError, BadRequestError } = require('../errors.js');
 const { validateBody, validateParam} = require('../middleware/validate.js');
 const { idSchema, recetaSchema, recetaSchemaRequired } = require('../schemas.js');
@@ -14,6 +14,13 @@ router.get('/', async function (req, res) {
 router.get('/:id', validateParam(idSchema, 'id'), async function (req, res) {
     const { id } = req.params;
     const result = await getRecetaById(id);
+    if (!result) throw new NotFoundError('Receta no encontrada', `La receta con id ${id} no existe.`);
+    res.json(result);
+});
+
+router.get('/chefs/:id', validateParam(idSchema, 'id'), async function (req, res) {
+    const { id } = req.params;
+    const result = await getRecetaByChefId(id);
     if (!result) throw new NotFoundError('Receta no encontrada', `La receta con id ${id} no existe.`);
     res.json(result);
 });

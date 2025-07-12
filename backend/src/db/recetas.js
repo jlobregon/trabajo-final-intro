@@ -42,6 +42,11 @@ async function getRecetaById(id) {
     return result.rows[0];
 }
 
+async function getRecetaByChefId(id) {
+    const result = await dbClient.query('SELECT r.* FROM recetas r JOIN chefs c on r.chef_id = c.id WHERE c.id = $1', [id]);
+    return result.rows;
+}
+
 async function createReceta(receta) {
     const { nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url } = receta;
     const result = await dbClient.query(
@@ -116,6 +121,7 @@ async function deleteReceta(id) {
 module.exports = {
     getAllRecetas,
     getRecetaById,
+    getRecetaByChefId,
     createReceta,
     updateReceta,
     deleteReceta
