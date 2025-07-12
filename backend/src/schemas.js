@@ -6,7 +6,7 @@ const idSchemaNotRequired = Joi.number().integer();
 const recetaSchema = Joi.object({
     nombre: Joi.string().max(100),
     chef_id: idSchemaNotRequired,
-    description: Joi.string(),
+    descripcion: Joi.string(),
     nivel_dificultad: Joi.number().integer(),
     categoria: Joi.string().max(50),
     tiempo_estimado: Joi.number().integer(),
@@ -17,7 +17,7 @@ const recetaSchema = Joi.object({
 const recetaSchemaRequired = Joi.object({
     nombre: Joi.string().max(100).required(),
     chef_id: idSchema,
-    description: Joi.string(),
+    descripcion: Joi.string(),
     nivel_dificultad: Joi.number().integer().required(),
     categoria: Joi.string().max(50).required(),
     tiempo_estimado: Joi.number().integer(),

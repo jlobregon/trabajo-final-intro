@@ -1,50 +1,64 @@
 const contenedorRecetas = document.getElementById('contenedor-recetas');
 const contenedorChefs = document.getElementById('contenedor-chefs');
+import { modalesRecetas } from './modal-recetas.js';
+let recetas = [];
 
 Promise.all([
     fetch('http://localhost:3000/api/v1/recetas').then(result => result.json()),
     fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
 ])
-.then(([recetas, chefs]) => {
-    recetas.forEach(receta => {
-        const chef = chefs.find(c => c.id === receta.chef_id)
-        const elementoReceta = document.createElement('div');
-        elementoReceta.classList.add('column', 'is-4-desktop');
+.then(([resRecetas, chefs]) => {
+    recetas = resRecetas.slice(0, 6);
 
-        elementoReceta.innerHTML = `
+    recetas.forEach(receta => {
+        const chef = chefs.find(c => c.id === receta.chef_id);
+        const tarjeta = document.createElement('div');
+        tarjeta.classList.add('column', 'is-4-desktop');
+
+        tarjeta.innerHTML = `
             <div class="card">
-                <div class="card-image">
-                    <figure class="image is-1by1 receta-imagen">
-                    <img src="${receta.imagen_url || 'img/receta-default.jpg'}" alt="Receta">
-                    </figure>
-                </div>
+                <a class="js-modal-trigger" data-target="modal-receta" data-receta-id="${receta.id}">
+                    <div class="card-image">
+                        <figure class="image is-1by1 tarjeta-imagen">
+                            <img src="${receta.imagen_url || 'img/receta-default.jpg'}" alt="Receta">
+                        </figure>
+                    </div>
+                </a>
                 <div class="card-content">
                     <div class="media">
                         <div class="media-left">
                             <figure class="image is-48x48">
-                                <img src="${chef.imagen_url || "img/perfil-default.png"}" alt="PFP">
+                                <img src="${chef.imagen_url || 'img/perfil-default.png'}" alt="PFP">
                             </figure>
                         </div>
                         <div class="media-content">
-                            <p class="title is-5">${receta.nombre}</p>
-                            <p class="subtitle is-6">${chef.nombre}</p>
+                            <p class="title is-5 js-modal-trigger nombre-recetas" data-target="modal-receta" data-receta-id="${receta.id}" style="cursor: pointer;">
+                                ${receta.nombre}
+                            </p>
+                            <p class="subtitle is-6">
+                                <a class="autor-receta" href="perfil.html?id=${chef.id}">${chef.nombre}</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            `;
-            contenedorRecetas.appendChild(elementoReceta);
-        });
-    chefs.forEach(chef => {
-        const elementoChef = document.createElement('div');
-        elementoChef.classList.add('column', 'is-3-desktop', 'has-text-centered');
-        elementoChef.innerHTML = `
-            <figure class="image is-1by1 receta-imagen">
-                <img class="is-rounded" src="${chef.imagen_url || 'img/perfil-default.png'}" alt="${chef.nombre}">
-            </figure>
-            <p class="title is-5">${chef.nombre}</p>
-            <p class="subtitle is-6">${chef.especialidad || chef.localidad || ""}</p>
         `;
-        contenedorChefs.appendChild(elementoChef);
+        contenedorRecetas.appendChild(tarjeta);
     });
+
+    chefs.forEach(chef => {
+        const div = document.createElement('div');
+        div.classList.add('column', 'is-3-desktop', 'has-text-centered');
+        div.innerHTML = `
+            <a href="perfil.html?id=${chef.id}" class="js-modal-trigger">
+                <figure class="image is-1by1 tarjeta-imagen">
+                    <img class="is-rounded" src="${chef.imagen_url || 'img/perfil-default.png'}" alt="${chef.nombre}">
+                </figure>
+                <p class="title is-5">${chef.nombre}</p>
+                <p class="subtitle is-6">${chef.especialidad || chef.localidad || ""}</p>
+            </a>
+        `;
+        contenedorChefs.appendChild(div);
+    });
+    modalesRecetas(recetas);
 });
