@@ -27,8 +27,8 @@ Promise.all([
                 <div class="card-content">
                     <div class="media">
                         <div class="media-left">
-                            <figure class="image is-48x48">
-                                <img src="${chef.imagen_url || 'img/perfil-default.png'}" alt="PFP">
+                            <figure class="image is-48x48 tarjeta-imagen">
+                                <img class="is-rounded" src="${chef.imagen_url || 'img/perfil-default.png'}" alt="PFP">
                             </figure>
                         </div>
                         <div class="media-content">
