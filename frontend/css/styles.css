@@ -54,6 +54,10 @@ h1, h2, .title {
   justify-content: center;
 }
 
+.elemento-principal {
+  padding-top: 3rem;
+}
+
 .icono-busqueda, .icono-filtro {
   max-height: 1.4em;
   width: auto;
