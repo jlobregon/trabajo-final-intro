@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Las Recetas de Gusteau</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item boton-pagina-navbar" href="index.html">
+                <img src="img/gusteau-logo-tipografia.png" alt="Gusteau Logo" class="logo-navbar">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item boton-pagina-navbar" href="recetas.html">Recetas</a>
+                <a class="navbar-item boton-pagina-navbar" href="chefs.html">Chefs</a>
+                <a class="navbar-item boton-pagina-navbar" href="index.html">Sobre nosotros</a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="crear-receta.html"><strong>+ Crear receta</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container elemento-principal">
+            <div class="columns is-vcentered">
+                <div class="column is-4 has-text-centered">
+                    <figure class="image is-128x128 is-inline-block tarjeta-imagen">
+                        <img id="chef-imagen" class="is-rounded" src="" alt="Foto del chef">
+                    </figure>
+                    <p id="chef-localidad" class="title is-5 mt-3"></p>
+                </div>
+                <div class="column is-8">
+                    <p id="chef-nombre" class="box has-text-weight-bold is-size-4"></p>
+                    <p id="chef-especialidad" class="box has-text-weight-bold is-size-5 mt-2"></p>
+                </div>
+            </div>
+            <div class="mt-5">
+                <h2 class="title is-4">Recetas:</h2>
+                <div id="chef-recetas" class="columns is-multiline"></div>
+            </div>
+        </div>
+    </section>
+    <div id="modal-receta" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title" id="modal-titulo">Título receta</p>
+                    <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body" id="modal-cuerpo"></section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger">Editar</button>
+                <button class="button is-danger">Borrar</button>
+            </footer>
+        </div>
+    </div>
+    <script type="module" src="js/perfil.js"></script>
+</body>
+</html>
