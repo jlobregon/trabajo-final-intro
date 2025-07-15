@@ -3,6 +3,12 @@ const { BadRequestError } = require('../errors');
 function validateBody(schema) {
     return function (req, res, next) {
         const data = req.body;
+        Object.keys(data).forEach(value => {
+            if (!data[value]?.length)
+            {
+                data[value] = undefined;
+            }
+        })
         const { error } = schema.validate(data, { abortEarly: false });
         if (error) {
             const details = error.details.map(d => ({ field: d.path, msg: d.message }));
