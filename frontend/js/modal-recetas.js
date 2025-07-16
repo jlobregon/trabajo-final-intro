@@ -69,6 +69,15 @@ function modalesRecetas(recetas){
             });
         }
     });
+
+    document.getElementById('boton-editar-receta').addEventListener('click', () => {
+        const recetaId = document.getElementById('modal-receta').dataset.recetaId;
+        if (recetaId) {
+            window.location.href = `editar-receta.html?id=${recetaId}`;
+        } else {
+            alert('No se pudo obtener el ID de la receta para editar.');
+        }
+    });
 }
 
 export { modalesRecetas };

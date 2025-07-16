@@ -62,6 +62,11 @@ document.getElementById('form-crear-receta').addEventListener('submit', (event) 
     const ingredientesList = document.getElementById('ingredientes-lista');
     const ingredientes = [];
 
+    if (ingredientesList.querySelectorAll('li').length === 0) {
+        alert('Debes agregar al menos un ingrediente.');
+        return;
+    }
+
     ingredientesList.querySelectorAll('li').forEach(item => {
         const idIngrediente = parseInt(item.dataset.idIngrediente);
         const cantidad = parseInt(item.querySelector('input[type="number"]').value);
