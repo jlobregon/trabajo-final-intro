@@ -54,6 +54,7 @@ Promise.all([
     if(!Array.isArray(chefs) || chefs.length === 0) {
         contenedorChefs.innerHTML = '<p class="has-text-centered">No hay chefs disponibles.</p>';
     } else {
+        chefs = chefs.slice(0, 4);
         chefs.forEach(chef => {
             const div = document.createElement('div');
             div.classList.add('column', 'is-3-desktop', 'has-text-centered');
