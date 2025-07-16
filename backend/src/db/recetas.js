@@ -43,7 +43,7 @@ async function getRecetaById(id) {
 }
 
 async function getRecetaByChefId(id) {
-    const result = await dbClient.query('SELECT r.* FROM recetas r JOIN chefs c on r.chef_id = c.id WHERE c.id = $1', [id]);
+    const result = await dbClient.query('SELECT * FROM recetas WHERE chef_id = $1', [id]);
     return result.rows;
 }
 
