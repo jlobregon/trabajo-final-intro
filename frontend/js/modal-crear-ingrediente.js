@@ -32,7 +32,7 @@ function modalCrearIngrediente(){
                             <div class="field">
                                 <label class="label">Categoría</label>
                                 <div class="control">
-                                    <input class="input" maxlength="50" type="text" name="categoria" required>
+                                    <input class="input" maxlength="50" type="text" name="categoria">
                                 </div>
                             </div>
                             <div class="field">
@@ -44,7 +44,7 @@ function modalCrearIngrediente(){
                             <div class="field">
                                 <label class="label">Unidad de Medida</label>
                                 <div class="control">
-                                    <input class="input" type="text" name="unidad_medida" maxlength="30" placeholder="Por ejemplo gramos, kilos, etc" required>
+                                    <input class="input" type="text" name="unidad_medida" maxlength="30" placeholder="Por ejemplo gramos, kilos, etc">
                                 </div>
                             </div>
                             <div class="field">
@@ -52,27 +52,56 @@ function modalCrearIngrediente(){
                                     <input type="checkbox" name="es_vegano"> ¿Es Vegano?
                                 </label>
                             </div>
+                            <button type="submit" class="button is-success" id="crear-ingrediente">Crear Ingrediente</button>
                         </form>
                     `;
                     openModal(modal);
+
+                    document.getElementById('form-crear-ingrediente').addEventListener('submit', (event) => {
+                        event.preventDefault();
+                        const formData = new FormData(event.target);
+                        const formDataObj = {};
+                        formData.forEach((value, key) => (formDataObj[key] = value));
+                        formDataObj.es_vegano = formDataObj.es_vegano === 'on';
+                        console.log('Datos del formulario:', formDataObj);
+
+                        fetch('http://localhost:3000/api/v1/ingredientes', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formDataObj)
+                        }).then(response => {
+                            if (response.ok) {
+                                closeModal(modal);
+                                alert('Ingrediente creado exitosamente.');
+                                location.reload();
+                            } else {
+                                throw new Error('Error al crear el ingrediente.');
+                            }
+                        })
+                        // }).catch(error => {
+                        //     console.error('Error:', error);
+                        //     alert('Error al crear el ingrediente. Inténtalo de nuevo.');
+                        // });
+                    });
                 }
             }
 
             if (
                 event.target.matches('.modal-background') ||
                 event.target.matches('.modal-close') ||
-                event.target.matches('.modal-card-head .delete') ||
-                event.target.matches('.modal-card-foot .button')
+                event.target.matches('.modal-card-head .delete')
             ){
                 const modal = event.target.closest('.modal');
                 closeModal(modal);
             }
 
-        document.addEventListener('keydown', (event) => {
-            if (event.key === "Escape") {
-            closeAllModals();
-            }
-        });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === "Escape") {
+                closeAllModals();
+            }}
+        );
     });
 }
 
