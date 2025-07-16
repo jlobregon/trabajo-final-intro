@@ -14,6 +14,7 @@ if (chefId) {
         document.getElementById("chef-especialidad").textContent = chef.especialidad || "";
         document.getElementById("chef-localidad").textContent = chef.localidad || "";
         document.getElementById("chef-imagen").src = chef.imagen_url || "img/perfil-default.png";
+        document.getElementById("chef-acerca-de").textContent = chef.acerca_de || "";
 
         recetas = resRecetas;
         const recetasContainer = document.getElementById("chef-recetas");
