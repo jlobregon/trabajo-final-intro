@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Las Recetas de Gusteau</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-4">Editar receta</h2>
+            <form id="form-editar-receta">
+                <div class="field">
+                    <label class="label">Nombre de la receta</label>
+                    <div class="control">
+                        <input class="input" maxlength="100" type="text" placeholder="Nombre de la receta" id="nombre-receta" name="nombre">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Descripción</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Descripción de la receta" id="descripcion-receta" name="descripcion"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Chef</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="chef-receta" name="chef_id">
+                                <option value="" disabled selected>Seleccione un chef</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Categoria</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="categoria-receta" name="categoria">
+                                <option value="" disabled selected>Seleccione una categoría</option>
+                                <option value="Sin categoría">Sin categoría</option>
+                                <option value="Vegeteriano">Vegeteriano</option>
+                                <option value="Vegano">Vegano</option>
+                                <option value="Celiaco">Celiaco</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Nivel de dificultad</label>
+                    <div class="control">
+                        <div class="radio" id="dificultad-receta">
+                            <label>
+                                <input type="radio" name="nivel_dificultad" value="1" checked>
+                                Facil
+                            </label>
+                            <label>
+                                <input type="radio" name="nivel_dificultad" value="2">
+                                Intermedio
+                            </label>
+                            <label>
+                                <input type="radio" name="nivel_dificultad" value="3">
+                                Dificil
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Tiempo de preparación (minutos)</label>
+                    <div class="control">
+                        <input class="input" type="number" min="1" placeholder="Tiempo de preparación" id="tiempo-preparacion" name="tiempo_estimado">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Ingredientes</label>
+                    <div class="control">
+                        <div>
+                            <ul id="ingredientes-lista">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <select id="ingredientes-receta">
+                                <option value="" disabled selected>Seleccionar ingrediente</option>
+                            </select>
+                        </div>
+                        <button class="button" type="button" id="agregar-ingrediente">+</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Imagen de la receta</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="URL de la imagen" id="imagen-receta" name="imagen_url" value="">
+                    </div>
+                </div>
+                <button class="button is-primary" type="submit" id="editar-receta-btn">Editar receta</button>
+            </form>
+    </section>
+    <script src="js/editar-receta.js"></script>
+</body>
+</html>
