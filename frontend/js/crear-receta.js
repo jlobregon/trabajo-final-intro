@@ -79,7 +79,12 @@ document.getElementById('form-crear-receta').addEventListener('submit', (event) 
         },
         body: JSON.stringify(formDataObj)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(response.json().then(err => err.message || 'Error al crear la receta'));
+        }
+        return response.json()
+    })
     .then(data => {
         console.log('Receta creada:', data);
         alert('Receta creada exitosamente');
