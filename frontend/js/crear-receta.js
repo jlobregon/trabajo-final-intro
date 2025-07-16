@@ -44,7 +44,7 @@ document.getElementById('agregar-ingrediente').addEventListener('click', () => {
         newItem.appendChild(unidadSpan);
         newItem.dataset.idIngrediente = ingredienteSeleccionado;
         const botonEliminar = document.createElement('button');
-        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.textContent = 'X';
         botonEliminar.type = 'button';
         botonEliminar.addEventListener('click', () => {
             ingredientesList.removeChild(newItem);

@@ -7,6 +7,21 @@
     <title>Las Recetas de Gusteau</title>
     <link rel="stylesheet" href="css/bulma.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .ingredientes li {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .ingredientes li > input[type="number"] {
+            width: 60px;
+        }
+        .required {
+            color: red;
+            margin-left: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,9 +58,9 @@
             <h2 class="title is-4 elemento-principal">Crear nueva receta</h2>
             <form action="http://localhost:3000/api/v1/recetas" method="POST" id="form-crear-receta">
                 <div class="field">
-                    <label class="label">Nombre de la receta</label>
+                    <label class="label">Nombre de la receta<span class="required">*</span></label>
                     <div class="control">
-                        <input class="input" maxlength="100" type="text" placeholder="Nombre de la receta" id="nombre-receta-nueva" name="nombre">
+                        <input class="input" maxlength="100" type="text" placeholder="Nombre de la receta" id="nombre-receta-nueva" name="nombre" required>
                     </div>
                 </div>
                 <div class="field">
@@ -55,20 +70,20 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Chef</label>
+                    <label class="label">Chef<span class="required">*</span></label>
                     <div class="control">
                         <div class="select">
-                            <select id="chef-receta-nueva" name="chef_id">
+                            <select id="chef-receta-nueva" name="chef_id" required>
                                 <option value="" disabled selected>Seleccione un chef</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Categoria</label>
+                    <label class="label">Categoria<span class="required">*</span></label>
                     <div class="control">
                         <div class="select">
-                            <select id="categoria-receta-nueva" name="categoria">
+                            <select id="categoria-receta-nueva" name="categoria" required>
                                 <option value="" disabled selected>Seleccione una categoría</option>
                                 <option value="Sin categoría">Sin categoría</option>
                                 <option value="Vegeteriano">Vegeteriano</option>
@@ -79,7 +94,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Nivel de dificultad</label>
+                    <label class="label">Nivel de dificultad<span class="required">*</span></label>
                     <div class="control">
                         <div class="radio">
                             <label>
@@ -104,9 +119,9 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Ingredientes</label>
+                    <label class="label">Ingredientes<span class="required">*</span></label>
                     <div class="control">
-                        <div>
+                        <div class="ingredientes">
                             <ul id="ingredientes-lista">
                             </ul>
                         </div>
