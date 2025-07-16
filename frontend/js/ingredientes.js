@@ -1,3 +1,5 @@
+import { modalCrearIngrediente } from './modal-crear-ingrediente.js';
+
 fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json()
 ).then(ingredientes => {
     const tablaIngredientes = document.getElementById('tabla-ingredientes');
@@ -27,4 +29,5 @@ fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json()
             });
         });
     });
+    modalCrearIngrediente();
 });
