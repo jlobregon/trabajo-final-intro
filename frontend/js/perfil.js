@@ -14,6 +14,7 @@ if (chefId) {
         document.getElementById("chef-especialidad").textContent = chef.especialidad || "";
         document.getElementById("chef-localidad").textContent = chef.localidad || "";
         document.getElementById("chef-imagen").src = chef.imagen_url || "img/perfil-default.png";
+        document.getElementById("chef-acerca-de").textContent = chef.acerca_de || "";
 
         recetas = resRecetas;
         const recetasContainer = document.getElementById("chef-recetas");
@@ -25,7 +26,7 @@ if (chefId) {
                     <div class="card">
                         <a class="js-modal-trigger" data-target="modal-receta" data-receta-id="${receta.id}">
                             <div class="card-image">
-                                <figure class="image is-1by1">
+                                <figure class="image is-1by1 tarjeta-imagen">
                                     <img src="${receta.imagen_url || 'img/receta-default.jpg'}" alt="${receta.nombre}">
                                 </figure>
                             </div>
@@ -41,5 +42,23 @@ if (chefId) {
             });
         modalesRecetas(recetas);
     });
-
 }
+
+document.getElementById('boton-borrar-chef').addEventListener('click', () => {
+    if (chefId) {
+        if (!confirm('¿Estás seguro de que quieres eliminar este perfil?')) {
+            return;
+        }
+        fetch(`http://localhost:3000/api/v1/chefs/${chefId}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Error al eliminar el chef');
+            location.href = 'index.html';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('No se pudo eliminar el chef. Inténtalo de nuevo más tarde.');
+        });
+    }
+});

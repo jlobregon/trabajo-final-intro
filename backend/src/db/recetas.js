@@ -75,7 +75,7 @@ async function updateReceta(id, receta) {
 
     let ingredientes = receta.ingredientes;
     receta.ingredientes = undefined;
-    if (Object.keys(receta).filter(function (value) { value.length > 0 }).length) {
+    if (Object.keys(receta).filter(function (value) { return value.length > 0 }).length) {
         const entries = Object.entries(receta).filter(([_, value]) => value !== undefined);
         const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
         const values = entries.map(([_, value]) => value);
@@ -102,7 +102,6 @@ async function updateReceta(id, receta) {
         );
         if (!result.rows || result.rows.length === 0)
         {
-            // If no update occurred, fetch the receta to return
             const recetaResult = await dbClient.query('SELECT * FROM recetas WHERE id = $1', [id]);
             result.rows = recetaResult.rows;
         }

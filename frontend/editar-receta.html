@@ -10,55 +10,28 @@
 </head>
 
 <body>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item boton-pagina-navbar" href="index.html">
-                <img src="img/gusteau-logo-tipografia.png" alt="Gusteau Logo" class="logo-navbar">
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
 
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item boton-pagina-navbar" href="recetas.html">Recetas</a>
-                <a class="navbar-item boton-pagina-navbar" href="chefs.html">Chefs</a>
-                <a class="navbar-item boton-pagina-navbar" href="ingredientes.html">Nuestra bodega</a>
-            </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary" href="crear-receta.html"><strong>+ Crear receta</strong></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
     <section class="section">
         <div class="container">
-            <h2 class="title is-4 elemento-principal">Crear nueva receta</h2>
-            <form action="http://localhost:3000/api/v1/recetas" method="POST" id="form-crear-receta">
+            <h2 class="title is-4">Editar receta</h2>
+            <form id="form-editar-receta">
                 <div class="field">
                     <label class="label">Nombre de la receta</label>
                     <div class="control">
-                        <input class="input" maxlength="100" type="text" placeholder="Nombre de la receta" id="nombre-receta-nueva" name="nombre">
+                        <input class="input" maxlength="100" type="text" placeholder="Nombre de la receta" id="nombre-receta" name="nombre">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Descripción</label>
                     <div class="control">
-                        <textarea class="textarea" placeholder="Descripción de la receta" id="descripcion-receta-nueva" name="descripcion"></textarea>
+                        <textarea class="textarea" placeholder="Descripción de la receta" id="descripcion-receta" name="descripcion"></textarea>
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Chef</label>
                     <div class="control">
                         <div class="select">
-                            <select id="chef-receta-nueva" name="chef_id">
+                            <select id="chef-receta" name="chef_id">
                                 <option value="" disabled selected>Seleccione un chef</option>
                             </select>
                         </div>
@@ -68,7 +41,7 @@
                     <label class="label">Categoria</label>
                     <div class="control">
                         <div class="select">
-                            <select id="categoria-receta-nueva" name="categoria">
+                            <select id="categoria-receta" name="categoria">
                                 <option value="" disabled selected>Seleccione una categoría</option>
                                 <option value="Sin categoría">Sin categoría</option>
                                 <option value="Vegeteriano">Vegeteriano</option>
@@ -81,7 +54,7 @@
                 <div class="field">
                     <label class="label">Nivel de dificultad</label>
                     <div class="control">
-                        <div class="radio">
+                        <div class="radio" id="dificultad-receta">
                             <label>
                                 <input type="radio" name="nivel_dificultad" value="1" checked>
                                 Facil
@@ -100,7 +73,7 @@
                 <div class="field">
                     <label class="label">Tiempo de preparación (minutos)</label>
                     <div class="control">
-                        <input class="input" type="number" min="1" placeholder="Tiempo de preparación" id="tiempo-estimado-nueva-receta" name="tiempo_estimado">
+                        <input class="input" type="number" min="1" placeholder="Tiempo de preparación" id="tiempo-preparacion" name="tiempo_estimado">
                     </div>
                 </div>
                 <div class="field">
@@ -111,7 +84,7 @@
                             </ul>
                         </div>
                         <div class="select">
-                            <select id="ingredientes-receta-nueva">
+                            <select id="ingredientes-receta">
                                 <option value="" disabled selected>Seleccionar ingrediente</option>
                             </select>
                         </div>
@@ -121,12 +94,12 @@
                 <div class="field">
                     <label class="label">Imagen de la receta</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="URL de la imagen" id="imagen-receta-nueva" name="imagen_url" value="">
+                        <input class="input" type="text" placeholder="URL de la imagen" id="imagen-receta" name="imagen_url" value="">
                     </div>
                 </div>
-                <button class="button is-primary" type="submit" id="crear-receta-btn">Crear receta</button>
+                <button class="button is-primary" type="submit" id="editar-receta-btn">Editar receta</button>
             </form>
     </section>
-    <script src="js/crear-receta.js"></script>
+    <script src="js/editar-receta.js"></script>
 </body>
 </html>

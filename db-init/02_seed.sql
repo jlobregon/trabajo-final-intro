@@ -1,27 +1,27 @@
 -- Chefs
-INSERT INTO chefs (nombre, acerca_de, localidad) VALUES
-('Auguste Gusteau', 'Auguste Gusteau es chef y propietario de Gusteau''s.', 'Paris, France'),
-('Remy', 'Remy es una rata con un extraordinario sentido del gusto y el olfato.', 'Paris, France'),
-('Colette Tatou', 'Colette es la única mujer chef en la cocina de Gusteau''s.', 'Paris, France'),
-('Alfredo Linguini', 'Linguini es un joven aprendiz de chef que trabaja en Gusteau''s.', 'Paris, France');
+INSERT INTO chefs (nombre, acerca_de, localidad, imagen_url) VALUES
+('Auguste Gusteau', 'Auguste Gusteau es chef y propietario de Gusteau''s.', 'Paris, France', NULL),
+('Remy', 'Remy es una rata con un extraordinario sentido del gusto y el olfato.', 'Paris, France', 'https://s6573.pcdn.co/wp-content/uploads/2025/04/Remy-from-Ratatouille.webp'),
+('Colette Tatou', 'Colette es la única mujer chef en la cocina de Gusteau''s.', 'Paris, France', NULL),
+('Alfredo Linguini', 'Linguini es un joven aprendiz de chef que trabaja en Gusteau''s.', 'Paris, France', 'https://pm1.aminoapps.com/6609/a57a820f1ef9fb58d7a3a3485cdbc90ddf7d4e8e_hq.jpg');
 
 -- Ingredientes
 INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES
 ('Leche de vaca', 'Leche', 32, 'ml', FALSE),
 ('Queso Emmental', 'Lácteos', 350, 'gr', FALSE),
-('Tomate', 'Verdura', 18, 'gr', TRUE),
-('Berenjena', 'Verdura', 25, 'gr', TRUE),
-('Calabacín', 'Verdura', 17, 'gr', TRUE),
-('Pimiento rojo', 'Verdura', 31, 'gr', TRUE),
+('Tomate', 'Verdura', 18, 'unidades', TRUE),
+('Berenjena', 'Verdura', 25, 'unidades', TRUE),
+('Calabacín', 'Verdura', 17, 'unidades', TRUE),
+('Pimiento rojo', 'Verdura', 31, 'unidades', TRUE),
 ('Aceite de oliva', 'Aceite', 884, 'ml', TRUE),
-('Ajo', 'Condimento', 149, 'gr', TRUE),
+('Ajo', 'Condimento', 149, 'unidades', TRUE),
 ('Hierbas provenzales', 'Condimento', 250, 'gr', TRUE);
 
 -- Recetas
 INSERT INTO recetas (nombre, chef_id, nivel_dificultad, categoria) VALUES
-('Vaso de leche', 1, 0, 'Recetas básicas'),
-('Ratatouille', 2, 2, 'Plato principal'),
-('Sopa de Remy', 2, 1, 'Entrante');
+('Vaso de leche', 1, 0, 'Sin categoría'),
+('Ratatouille', 2, 2, 'Sin categoría'),
+('Sopa de Remy', 2, 1, 'Sin categoría');
 
 -- Ingredientes de recetas
 INSERT INTO ingredientes_recetas (receta_id, ingrediente_id, cantidad_ingredientes) VALUES
