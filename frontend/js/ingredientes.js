@@ -1,4 +1,4 @@
-import { modalCrearIngrediente } from './modal-crear-ingrediente.js';
+import { modalCrearIngrediente, modalEditarIngrediente } from './modal-crear-ingrediente.js';
 
 fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json()
 ).then(ingredientes => {
@@ -11,7 +11,7 @@ fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json()
             <td>${ingrediente.calorias_aprox}</td>
             <td>${ingrediente.unidad_medida}</td>
             <td class="has-text-centered is-size-4">${ingrediente.es_vegano ? '✅' : '❌'}</td>
-            <td class="has-text-centered"><button title="Editar" id="editar-ingrediente" class="button is-warning">🖋</button></td>
+            <td class="has-text-centered"><button title="Editar" id="editar-ingrediente" class="button is-warning js-modal-trigger" data-ingrediente-id="${ingrediente.id}" data-target="modal-editar-ingrediente"">🖋</button></td>
             <td class="has-text-centered"><button title="Eliminar" class="button is-danger eliminar-ingrediente">🗑</button></td>
         `;
         tablaIngredientes.appendChild(tr);
@@ -30,4 +30,5 @@ fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json()
         });
     });
     modalCrearIngrediente();
+    modalEditarIngrediente(ingredientes);
 });
