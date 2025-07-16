@@ -2,7 +2,7 @@ const URLParams = new URLSearchParams(window.location.search);
 const recetaID = URLParams.get("id");
 if (!recetaID) {
     alert('Error al cargar la receta. Inténtalo de nuevo.');
-    location.href = "/404.html";
+    location.href = "http://localhost:8080/404.html";
 }
 
 fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
@@ -156,5 +156,5 @@ fetch(`http://localhost:3000/api/v1/recetas/${recetaID}`)
 }).catch(error => {
     console.error('Error al obtener la receta:', error);
     alert('Error al cargar la receta. Inténtalo de nuevo.');
-    location.href = "/404.html";
+    location.href = "http://localhost:8080/404.html";
 });
