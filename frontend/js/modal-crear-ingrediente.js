@@ -158,7 +158,7 @@ function modalEditarIngrediente(ingredientes){
                                 </div>
                                 <div class="field">
                                     <label class="checkbox">
-                                        <input type="checkbox" name="es_vegano"> ¿Es Vegano?
+                                        <input type="checkbox"${ingrediente.es_vegano ? " checked" : ""} name="es_vegano"> ¿Es Vegano?
                                     </label>
                                 </div>
                                 <button type="submit" class="button is-success" id="editar-ingrediente">Guardar cambios</button>
