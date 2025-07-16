@@ -4,7 +4,7 @@ function validateBody(schema) {
     return function (req, res, next) {
         const data = req.body;
         Object.keys(data).forEach(function (value) {
-            if (!data[value]?.length)
+            if (typeof data[value] === 'string' && !data[value]?.length)
             {
                 data[value] = undefined;
             }
