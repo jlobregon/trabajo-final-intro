@@ -77,12 +77,27 @@
                     </div>
                 </div>
                 <div class="field">
+                    <label class="label">Ingredientes</label>
+                    <div class="control">
+                        <div>
+                            <ul id="ingredientes-lista">
+                            </ul>
+                        </div>
+                        <div class="select">
+                            <select id="ingredientes-receta-nueva">
+                                <option value="" disabled selected>Seleccionar ingrediente</option>
+                            </select>
+                        </div>
+                        <button class="button" type="button" id="agregar-ingrediente">+</button>
+                    </div>
+                </div>
+                <div class="field">
                     <label class="label">Imagen de la receta</label>
                     <div class="control">
                         <input class="input" type="text" placeholder="URL de la imagen" id="imagen-receta-nueva" name="imagen_url" value="">
                     </div>
                 </div>
-                <button class="button is-primary"  type="submit" id="crear-receta-btn">Crear receta</button>
+                <button class="button is-primary" type="submit" id="crear-receta-btn">Crear receta</button>
             </form>
     </section>
     <script src="js/crear-receta.js"></script>
