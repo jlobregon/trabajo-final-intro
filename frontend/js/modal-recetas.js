@@ -28,6 +28,15 @@ function modalesRecetas(recetas){
                         modalCuerpo.innerHTML = `
                             <img src="${receta.imagen_url || 'img/receta-default.jpg'}"
                                 style="width: 100%; max-height: 300px; object-fit: cover;" class="mb-3">
+                            <p><strong>Categoria:</strong> ${receta.categoria || 'Sin categoría'}</p>
+                            <p><strong>Tiempo de preparación:</strong> ${receta.tiempo_estimado ? receta.tiempo_estimado + ' min' : '-'}</p>
+                            <p><strong>Dificultad:</strong> ${['Fácil', 'Media', 'Difícil'][receta.nivel_dificultad] || '-'}</p>
+                            <p><strong>Ingredientes:</strong></p>
+                            <ul>
+                                ${(receta.ingredientes || []).map(ing => `
+                                    <li> ${ing.nombre_ingrediente} (${ing.cantidad_ingredientes} ${ing.unidad_medida})</li>
+                                `).join('')}
+                            </ul>
                             <p><strong>Descripción:</strong> ${receta.descripcion || 'Sin descripción.'}</p>
                         `;
                         modal.dataset.recetaId = receta.id;
