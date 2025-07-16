@@ -1,5 +1,4 @@
 const contenedorRecetas = document.getElementById('contenedor-recetas');
-const contenedorChefs = document.getElementById('contenedor-chefs');
 import { modalesRecetas } from './modal-recetas.js';
 let recetas = [];
 
