@@ -1,9 +1,9 @@
 -- Chefs
-INSERT INTO chefs (nombre, acerca_de, localidad) VALUES
-('Auguste Gusteau', 'Auguste Gusteau es chef y propietario de Gusteau''s.', 'Paris, France'),
-('Remy', 'Remy es una rata con un extraordinario sentido del gusto y el olfato.', 'Paris, France'),
-('Colette Tatou', 'Colette es la única mujer chef en la cocina de Gusteau''s.', 'Paris, France'),
-('Alfredo Linguini', 'Linguini es un joven aprendiz de chef que trabaja en Gusteau''s.', 'Paris, France');
+INSERT INTO chefs (nombre, acerca_de, localidad, imagen_url) VALUES
+('Auguste Gusteau', 'Auguste Gusteau es chef y propietario de Gusteau''s.', 'Paris, France', NULL),
+('Remy', 'Remy es una rata con un extraordinario sentido del gusto y el olfato.', 'Paris, France', 'https://s6573.pcdn.co/wp-content/uploads/2025/04/Remy-from-Ratatouille.webp'),
+('Colette Tatou', 'Colette es la única mujer chef en la cocina de Gusteau''s.', 'Paris, France', NULL),
+('Alfredo Linguini', 'Linguini es un joven aprendiz de chef que trabaja en Gusteau''s.', 'Paris, France', 'https://pm1.aminoapps.com/6609/a57a820f1ef9fb58d7a3a3485cdbc90ddf7d4e8e_hq.jpg');
 
 -- Ingredientes
 INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES
