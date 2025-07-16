@@ -1,9 +1,9 @@
 -- Chefs
-INSERT INTO chefs (nombre, acerca_de, localidad, imagen_url) VALUES
-('Auguste Gusteau', 'Auguste Gusteau es chef y propietario de Gusteau''s.', 'Paris, France', NULL),
-('Remy', 'Remy es una rata con un extraordinario sentido del gusto y el olfato.', 'Paris, France', 'https://s6573.pcdn.co/wp-content/uploads/2025/04/Remy-from-Ratatouille.webp'),
-('Colette Tatou', 'Colette es la única mujer chef en la cocina de Gusteau''s.', 'Paris, France', NULL),
-('Alfredo Linguini', 'Linguini es un joven aprendiz de chef que trabaja en Gusteau''s.', 'Paris, France', 'https://pm1.aminoapps.com/6609/a57a820f1ef9fb58d7a3a3485cdbc90ddf7d4e8e_hq.jpg');
+INSERT INTO chefs (nombre, acerca_de, especialidad, localidad, imagen_url) VALUES
+('Auguste Gusteau', 'Auguste Gusteau es chef y propietario de Gusteau''s.', 'Alta cocina francesa', 'Paris, Francia', NULL),
+('Remy', 'Remy es una rata con un extraordinario sentido del gusto y el olfato.', 'Cocina creativa', 'Paris, Francia', 'https://s6573.pcdn.co/wp-content/uploads/2025/04/Remy-from-Ratatouille.webp'),
+('Colette Tatou', 'Colette es la única mujer chef en la cocina de Gusteau''s.', 'Salsas francesas', 'Paris, Francia', NULL),
+('Alfredo Linguini', 'Linguini es un joven aprendiz de chef que trabaja en Gusteau''s.', 'Pastas caseras', 'Paris, Francia', 'https://pm1.aminoapps.com/6609/a57a820f1ef9fb58d7a3a3485cdbc90ddf7d4e8e_hq.jpg');
 
 -- Ingredientes
 INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_vegano) VALUES
@@ -21,7 +21,7 @@ INSERT INTO ingredientes (nombre, categoria, calorias_aprox, unidad_medida, es_v
 INSERT INTO recetas (nombre, chef_id, nivel_dificultad, categoria) VALUES
 ('Vaso de leche', 1, 0, 'Sin categoría'),
 ('Ratatouille', 2, 2, 'Sin categoría'),
-('Sopa de Remy', 2, 1, 'Sin categoría');
+('Sopa', 2, 1, 'Sin categoría');
 
 -- Ingredientes de recetas
 INSERT INTO ingredientes_recetas (receta_id, ingrediente_id, cantidad_ingredientes) VALUES
