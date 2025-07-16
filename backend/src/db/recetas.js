@@ -43,7 +43,21 @@ async function getRecetaById(id) {
 }
 
 async function getRecetaByChefId(id) {
-    const result = await dbClient.query('SELECT * FROM recetas WHERE chef_id = $1', [id]);
+    const result = await dbClient.query(`SELECT r.id, r.nombre, r.chef_id, r.descripcion, r.categoria, r.nivel_dificultad, r.tiempo_estimado, r.imagen_url,
+        json_agg(
+            json_build_object(
+                'ingrediente_id', i.id,
+                'nombre_ingrediente', i.nombre,
+                'cantidad_ingredientes', ir.cantidad_ingredientes,
+                'unidad_medida', i.unidad_medida 
+            )
+        ) AS ingredientes
+        FROM recetas r
+        JOIN ingredientes_recetas ir ON ir.receta_id = r.id
+        JOIN ingredientes i ON i.id = ir.ingrediente_id
+        WHERE r.chef_id = $1
+        GROUP BY r.id
+        ORDER BY r.id`, [id]);
     return result.rows;
 }
 
