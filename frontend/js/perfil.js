@@ -9,10 +9,12 @@ if (chefId) {
     fetch(`http://localhost:3000/api/v1/recetas/chefs/${chefId}`).then(result => result.json()),
     fetch(`http://localhost:3000/api/v1/chefs/${chefId}`).then(result => result.json())
 ])
-
     .then(([resRecetas, chef]) => {
+        if (!chef || !chef.id || !chefId) {
+            location.href = 'http://localhost:8080/404.html';
+        }
         document.getElementById("chef-nombre").textContent = chef.nombre;
-        document.getElementById("chef-especialidad").textContent = chef.especialidad ? `Especialidad: ${chef.especialidad}`: "" ;
+        document.getElementById("chef-especialidad").textContent = `Especialidad: ${chef.especialidad === 'null' || !chef.especialidad ? '-' : chef.especialidad}`; ;
         document.getElementById("chef-localidad").textContent = chef.localidad ? `📍 ${chef.localidad}` : "";
         document.getElementById("chef-imagen").src = chef.imagen_url || "img/perfil-default.png";
         document.getElementById("chef-acerca-de").textContent = chef.acerca_de || "";
