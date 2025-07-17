@@ -21,7 +21,7 @@ Cuando se quiera detener el proyecto se debe hacer `make stop`, también se lo p
 * `make stop-db`, `make stop-backend` y `make stop-frontend` para detener los contenedores por separado (son dependientes, pueden haber fallos)
 * `make restart-db`, `make restart-backend` y `make restart-frontend` para detener y volver a correr los contenedores por separado (son dependientes, pueden haber fallos)
 * `make inspect-db`, `make inspect-backend` y `make inspect-frontend` permite ver los logs de los contenedores por separado
-* `make clear-db` borra el volumen de la base de datos y, en consecuencia, los datos que tiene dentro. Esto permite volver a cargar la semilla en *db-init/02_seed.sql*
+* `make clear-db` borra el volumen de la base de datos y, en consecuencia, los datos que tiene dentro. Esto permite que en el proximo `make start-db` se vuelvan a cargar y ejecutar los archivos en *db-init*
 * `make update-db` ejecuta `stop-db`, `clear-db` y `start-db` en secuencia. Útil cuando se cambió *db-init* y se quiere cargar esos datos
 
 ## Creditos/Agradecimientos
