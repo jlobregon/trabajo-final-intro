@@ -10,8 +10,25 @@ Las Recetas de Gusteau es una página web inspirada en la película Ratatouille 
 También el usuario puede crear, editar y eliminar las recetas, chefs e ingredientes dentro de la página.
 
 El sitio web cuenta con 3 páginas diferentes sin contar la página de inicio.
+
 <img width="2560" height="1114" alt="Image" src="https://github.com/user-attachments/assets/6ff6aadb-c2f8-4f4b-9a45-e2022696a106" />
-Página de inicio[^1]
+(Pagina de inicio)
+
+Arriba hay un barra de navegacion en donde se puede acceder a las distintas entidades.
+###Recetas:
+
+<img width="1596" height="937" alt="Image" src="https://github.com/user-attachments/assets/f109b15a-9277-4a93-8d0f-77f02b90376b" />
+(Pagina de recetas)
+
+Al hacer click sobre la tarjeta de una receta especifica, se abrirá un modal con toda su información, junto a botones para editar y borrar la receta seleccionada.
+
+<img width="1050" height="1203" alt="Image" src="https://github.com/user-attachments/assets/7b0a6c61-8ef6-4d41-a12c-890afd637c2b" />
+(Ejemplo de modal receta)
+
+En caso de querer crear una receta, se deberá hacer click sobre el boton verde que dice CREAR RECETA, en la barra de navegación, y redireccionará al usuario a un formulario para que complete con los campos de la nueva receta.
+
+<img width="1758" height="1075" alt="Image" src="https://github.com/user-attachments/assets/8ba64b91-6288-496d-99ac-53606cb1fdbf" />
+(Formulario para crear receta. Es el mismo formulario para la edición de recetas)
 
 
 ## Instrucciones
