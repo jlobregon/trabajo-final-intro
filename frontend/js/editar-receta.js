@@ -144,7 +144,7 @@ fetch(`http://localhost:3000/api/v1/recetas/${recetaID}`)
         newItem.appendChild(unidadSpan);
         newItem.dataset.idIngrediente = ingrediente.ingrediente_id;
         const botonEliminar = document.createElement('button');
-        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.textContent = 'X';
         botonEliminar.type = 'button';
         botonEliminar.addEventListener('click', () => {
             ingredientesList.removeChild(newItem);
