@@ -12,7 +12,7 @@ CREATE TABLE ingredientes (
     nombre VARCHAR(80) NOT NULL,
     categoria VARCHAR(50),
     calorias_aprox INT NOT NULL,
-    unidad_medida INT NOT NULL,
+    unidad_medida VARCHAR(30) NOT NULL,
     es_vegano BOOLEAN NOT NULL
 );
 

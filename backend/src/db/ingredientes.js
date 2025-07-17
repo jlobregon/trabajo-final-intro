@@ -20,13 +20,10 @@ async function createIngrediente(ingrediente){
 }
 
 async function updateIngrediente(id, ingrediente){
-    const entries = Object.entries(ingrediente).filter(([_, value]) => value !== undefined);
-    const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
-    const values = entries.map(([_, value]) => value);
-    values.push(id);
+    const { nombre, categoria, calorias_aprox, unidad_medida, es_vegano } = ingrediente;
     const result = await dbClient.query(
-        `UPDATE ingredientes SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
-        values
+        `UPDATE ingredientes SET nombre = $1, categoria = $2, calorias_aprox = $3, unidad_medida = $4, es_vegano = $5 WHERE id = $6 RETURNING *`,
+        [nombre, categoria, calorias_aprox, unidad_medida, es_vegano, id]
     );
     return result.rows[0];
 }

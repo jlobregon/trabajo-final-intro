@@ -1,12 +1,3 @@
-class InternalError extends Error {
-  constructor(message = 'An internal error occurred', details = '') {
-    super(message);
-    this.code = 'INTERNAL_ERROR';
-    this.statusCode = 500;
-    this.details = details;
-  }
-}
-
 class NotFoundError extends Error {
   constructor(message = 'Resource not found', details = '') {
     super(message);
@@ -25,18 +16,7 @@ class BadRequestError extends Error {
   }
 }
 
-class ValidationError extends Error {
-  constructor(message = 'Validation error', details = '') {
-    super(message);
-    this.code = 'VALIDATION_ERROR';
-    this.statusCode = 422;
-    this.details = details;
-  }
-}
-
 module.exports = {
-    InternalError,
     NotFoundError,
-    BadRequestError,
-    ValidationError
+    BadRequestError
 };

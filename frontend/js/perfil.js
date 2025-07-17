@@ -1,0 +1,68 @@
+const parametro = new URLSearchParams(window.location.search);
+const chefId = parametro.get("id");
+let recetas = [];
+import { modalEditarChef } from './modal-crear-chef.js';
+import { modalesRecetas } from './modal-recetas.js';
+
+if (chefId) {
+  Promise.all([
+    fetch(`http://localhost:3000/api/v1/recetas/chefs/${chefId}`).then(result => result.json()),
+    fetch(`http://localhost:3000/api/v1/chefs/${chefId}`).then(result => result.json())
+])
+    .then(([resRecetas, chef]) => {
+        if (!chef || !chef.id || !chefId) {
+            location.href = 'http://localhost:8080/404.html';
+        }
+        document.getElementById("chef-nombre").textContent = chef.nombre;
+        document.getElementById("chef-especialidad").textContent = `Especialidad: ${chef.especialidad === 'null' || !chef.especialidad ? '-' : chef.especialidad}`; ;
+        document.getElementById("chef-localidad").textContent = chef.localidad ? `📍 ${chef.localidad}` : "";
+        document.getElementById("chef-imagen").src = chef.imagen_url || "img/perfil-default.png";
+        document.getElementById("chef-acerca-de").textContent = chef.acerca_de || "";
+
+        recetas = resRecetas;
+        const recetasContainer = document.getElementById("chef-recetas");
+            recetas.forEach(receta => {
+                const div = document.createElement("div");
+                div.classList.add("column", "is-4");
+
+                div.innerHTML = `
+                    <div class="card">
+                        <a class="js-modal-trigger" data-target="modal-receta" data-receta-id="${receta.id}">
+                            <div class="card-image">
+                                <figure class="image is-1by1 tarjeta-imagen">
+                                    <img src="${receta.imagen_url || 'img/receta-default.jpg'}" alt="${receta.nombre}">
+                                </figure>
+                            </div>
+                        </a>
+                        <div class="card-content">
+                            <p class="title is-6 js-modal-trigger" data-target="modal-receta" data-receta-id="${receta.id}" style="cursor: pointer;">
+                                ${receta.nombre}
+                            </p>
+                        </div>
+                    </div>
+                `;
+                recetasContainer.appendChild(div);
+            });
+        modalesRecetas(recetas);
+        modalEditarChef(chef);
+    });
+}
+
+document.getElementById('boton-borrar-chef').addEventListener('click', () => {
+    if (chefId) {
+        if (!confirm('¿Estás seguro de que quieres eliminar este perfil?')) {
+            return;
+        }
+        fetch(`http://localhost:3000/api/v1/chefs/${chefId}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Error al eliminar el chef');
+            location.href = 'index.html';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('No se pudo eliminar el chef. Inténtalo de nuevo más tarde.');
+        });
+    }
+});

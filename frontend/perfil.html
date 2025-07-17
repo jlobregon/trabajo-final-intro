@@ -38,34 +38,46 @@
             </div>
         </div>
     </nav>
-    <section class="hero is-medium header-section">
-        <div id="hero-principal" class="hero-body is-flex is-align-items-center">
-            <div id="contenido-hero" class="container has-text-centered">
-                <div class="columns is-vcentered ">
-                    <div class="column is-half">
-                        <img src="img/gusteau-logo-principal.png" class="header-image" alt="Gusteau">
-                        <h1 id="titulo-principal" class="title is-1">Cualquiera puede cocinar</h1>
-                    </div>
+    <section class="section">
+        <div class="container elemento-principal">
+            <div class="columns is-vcentered">
+                <div class="column is-4 has-text-centered">
+                    <figure class="image is-128x128 is-inline-block tarjeta-imagen">
+                        <img id="chef-imagen" class="is-rounded" src="" alt="Foto del chef">
+                    </figure>
+                    <p id="chef-nombre" class="title is-4 mt-3"></p>
+                    <button id="boton-borrar-chef" class="button is-danger" title="Borrar perfil">🗑</button>
+                    <button title="Editar" id="editar-chef" class="button is-warning js-modal-trigger" data-chef-id="${chef.id}" data-target="modal-editar-chef">🖋</button>
+                </div>
+                <div class="column is-8">
+                    <p id="chef-localidad" class="box has-text-weight-bold is-size-5"></p>
+                    <p id="chef-especialidad" class="box has-text-weight-bold is-size-5 mt-2"></p>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section" id="recetas-destacadas">
-        <div class="container">
-            <h2 class="title is-4 titulo-elementos">Recetas populares</h2>
-            <div id="contenedor-recetas" class="columns is-multiline">
+            <div>
+                <h2 class="title is-4">Biografia:</h2>
+                <p id="chef-acerca-de" class="box mt-3"></p>
             </div>
-            <hr class="my-5" id="division-recetas-chefs">
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <h2 class="title is-4 titulo-elementos">Chefs populares</h2>
-            <div id="contenedor-chefs" class="columns is-multiline">
+            <div class="mt-5">
+                <h2 class="title is-4">Recetas:</h2>
+                <div id="chef-recetas" class="columns is-multiline"></div>
             </div>
         </div>
     </section>
-
+    <div id="modal-editar-chef" class="modal">
+        <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="modal-editar-chef-titulo">Editar chef</p>
+                        <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body" id="modal-editar-chef-cuerpo"></section>
+                <footer class="modal-card-foot">
+                    <button class="button is-danger">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+    </div>
     <div id="modal-receta" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -80,12 +92,6 @@
             </footer>
         </div>
     </div>
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p><strong>Las Recetas de Gusteau</strong> por APIcultores, usando Bulma.</p>
-        </div>
-    </footer>
-    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/perfil.js"></script>
 </body>
-
 </html>

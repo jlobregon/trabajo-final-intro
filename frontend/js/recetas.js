@@ -1,5 +1,4 @@
 const contenedorRecetas = document.getElementById('contenedor-recetas');
-const contenedorChefs = document.getElementById('contenedor-chefs');
 import { modalesRecetas } from './modal-recetas.js';
 let recetas = [];
 
@@ -11,7 +10,7 @@ Promise.all([
     if (!Array.isArray(resRecetas) || resRecetas.length === 0) {
     contenedorRecetas.innerHTML = '<p>No hay recetas disponibles.</p>';
     } else {
-        recetas = resRecetas.slice(0, 6);
+        recetas = resRecetas;
     
         recetas.forEach(receta => {
             const chef = chefs.find(c => c.id === receta.chef_id);
@@ -48,27 +47,6 @@ Promise.all([
             `;
             contenedorRecetas.appendChild(tarjeta);
         });
-        
+        modalesRecetas(recetas);
     }
-
-    if(!Array.isArray(chefs) || chefs.length === 0) {
-        contenedorChefs.innerHTML = '<p class="has-text-centered">No hay chefs disponibles.</p>';
-    } else {
-        chefs = chefs.slice(0, 4);
-        chefs.forEach(chef => {
-            const div = document.createElement('div');
-            div.classList.add('column', 'is-3-desktop', 'has-text-centered');
-            div.innerHTML = `
-                <a href="perfil.html?id=${chef.id}" class="js-modal-trigger">
-                    <figure class="image is-1by1 tarjeta-imagen">
-                        <img class="is-rounded" src="${chef.imagen_url || 'img/perfil-default.png'}" alt="${chef.nombre}">
-                    </figure>
-                    <p class="title is-5">${chef.nombre}</p>
-                    <p class="subtitle is-6">${chef.especialidad || chef.localidad || ""}</p>
-                </a>
-            `;
-            contenedorChefs.appendChild(div);
-        });
-    }
-    modalesRecetas(recetas);
 });

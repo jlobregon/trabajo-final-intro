@@ -38,54 +38,35 @@
             </div>
         </div>
     </nav>
-    <section class="hero is-medium header-section">
-        <div id="hero-principal" class="hero-body is-flex is-align-items-center">
-            <div id="contenido-hero" class="container has-text-centered">
-                <div class="columns is-vcentered ">
-                    <div class="column is-half">
-                        <img src="img/gusteau-logo-principal.png" class="header-image" alt="Gusteau">
-                        <h1 id="titulo-principal" class="title is-1">Cualquiera puede cocinar</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section" id="recetas-destacadas">
-        <div class="container">
-            <h2 class="title is-4 titulo-elementos">Recetas populares</h2>
-            <div id="contenedor-recetas" class="columns is-multiline">
-            </div>
-            <hr class="my-5" id="division-recetas-chefs">
-        </div>
-    </section>
+
+    
     <section class="section">
-        <div class="container">
-            <h2 class="title is-4 titulo-elementos">Chefs populares</h2>
-            <div id="contenedor-chefs" class="columns is-multiline">
+            <div class="container is-flex is-flex-direction-row is-justify-content-space-between my-5">
+                <h2 class="title is-4 titulo-elementos">Todos los chefs</h2>
+                <button class="button is-primary js-modal-trigger" data-target="modal-crear-chef" id="boton-crear-chef"><strong>+ Crear chef</strong></button>
             </div>
+        </div>
+        <div class="container">
+            <div id="contenedor-chefs" class="columns is-multiline"></div>
         </div>
     </section>
 
-    <div id="modal-receta" class="modal">
+    <div id="modal-crear-chef" class="modal">
         <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title" id="modal-titulo">Título receta</p>
-                    <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body" id="modal-cuerpo"></section>
-            <footer class="modal-card-foot">
-                <button id="boton-editar-receta" class="button is-danger">Editar</button>
-                <button id="boton-borrar-receta" class="button is-danger">Borrar</button>
-            </footer>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="modal-crear-chef-titulo">Creación de Chef</p>
+                        <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body" id="modal-crear-chef-cuerpo"></section>
+            </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-auto">
         <div class="content has-text-centered">
             <p><strong>Las Recetas de Gusteau</strong> por APIcultores, usando Bulma.</p>
         </div>
     </footer>
-    <script type="module" src="js/index.js"></script>
+    
+    <script type="module" src="js/chefs.js"></script>
 </body>
-
-</html>
