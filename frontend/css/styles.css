@@ -100,8 +100,26 @@ h1, h2, .title {
     white-space: normal;  
 }
 
+.ingredientes li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.ingredientes li > input[type="number"] {
+    width: 60px;
+}
+.required {
+    color: red;
+    margin-left: 4px;
+}
+
 .boton-pagina-navbar{
     color: white
+}
+
+.tabla-ingredientes {
+    background-color: var(--color-bordo);
 }
 
 .autor-receta{
