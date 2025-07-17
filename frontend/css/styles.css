@@ -5,10 +5,6 @@
     --color-dorado: rgb(238, 219, 193);
 }
 
-h1, h2, .title {
-  font-family: 'Playfair Display', serif;
-}
-
 .titulo-elementos {
     color: var(--color-azul);
 }
@@ -135,5 +131,5 @@ h1, h2, .title {
 body{
     background-color: var(--color-background);
     min-height: 100vh;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Helvetica, sans-serif;
 }

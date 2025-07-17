@@ -1,13 +1,16 @@
 import { modalCrearIngrediente, modalEditarIngrediente } from './modal-crear-ingrediente.js';
 
 fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json()
-).then(ingredientes => {
+)
+.then(data => {
+    return data.sort((a, b) => a.nombre.localeCompare(b.nombre));
+}).then(ingredientes => {
     const tablaIngredientes = document.getElementById('tabla-ingredientes');
     ingredientes.forEach(ingrediente => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${ingrediente.nombre}</td>
-            <td>${ingrediente.categoria}</td>
+            <td>${ingrediente.categoria === 'null' || !ingrediente.categoria ? 'Sin categoría' : ingrediente.categoria}</td>
             <td>${ingrediente.calorias_aprox}</td>
             <td>${ingrediente.unidad_medida}</td>
             <td class="has-text-centered is-size-4">${ingrediente.es_vegano ? '✅' : '❌'}</td>

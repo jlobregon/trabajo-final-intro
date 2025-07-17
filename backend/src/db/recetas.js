@@ -86,18 +86,15 @@ async function createReceta(receta) {
 
 async function updateReceta(id, receta) {
     let result = { rows: [] };
+    const { nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url } = receta;
 
     let ingredientes = receta.ingredientes;
     receta.ingredientes = undefined;
     if (Object.keys(receta).filter(function (value) { return value.length > 0 }).length) {
-        const entries = Object.entries(receta).filter(([_, value]) => value !== undefined);
-        const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
-        const values = entries.map(([_, value]) => value);
-        values.push(id);
-        console.log(entries, columns, values);
+
         result = await dbClient.query(
-            `UPDATE recetas SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
-            values
+            `UPDATE recetas SET nombre = $1, chef_id = $2, descripcion = $3, nivel_dificultad = $4, categoria = $5, tiempo_estimado = $6, imagen_url = $7 WHERE id = $8 RETURNING *`,
+            [nombre, chef_id, descripcion, nivel_dificultad, categoria, tiempo_estimado, imagen_url, id]
         );
     }
 

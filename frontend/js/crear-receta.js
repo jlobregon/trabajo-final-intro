@@ -11,6 +11,9 @@ fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
 });
 
 fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json())
+.then(data => {
+    return data.sort((a, b) => a.nombre.localeCompare(b.nombre));
+})
 .then(ingredientes => {
     const selectIngredientes = document.getElementById('ingredientes-receta-nueva');
 
@@ -93,7 +96,7 @@ document.getElementById('form-crear-receta').addEventListener('submit', (event) 
     .then(data => {
         console.log('Receta creada:', data);
         alert('Receta creada exitosamente');
-        location.href = 'http://localhost:8080/';
+        location.href = 'http://localhost:8080/recetas';
     })
     .catch(error => {
         console.error('Error al crear la receta:', error);

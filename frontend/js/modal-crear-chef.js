@@ -148,7 +148,7 @@ function modalEditarChef(chef){
                                 <div class="field">
                                     <label class="label">Especialidad</label>
                                     <div class="control">
-                                        <input value="${chef.especialidad}" class="input" maxlength="50" type="text" name="especialidad">
+                                        <input value="${chef.especialidad === 'null' || !chef.especialidad ? '' : chef.especialidad}" class="input" maxlength="50" type="text" name="especialidad">
                                     </div>
                                 </div>
                                 <div class="field">
@@ -160,7 +160,7 @@ function modalEditarChef(chef){
                                 <div class="field">
                                     <label class="label">Imagen</label>
                                     <div class="control">
-                                        <input value="${chef.imagen_url}" class="input" type="text" name="imagen_url">
+                                        <input value="${chef.imagen_url === 'null' || !chef.imagen_url ? '' : chef.imagen_url}" class="input" type="text" name="imagen_url">
                                     </div>
                                 </div>
                                 <button type="submit" class="button is-success" id="editar-chef">Guardar cambios</button>

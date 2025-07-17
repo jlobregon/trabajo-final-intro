@@ -20,13 +20,10 @@ async function createChef(chef) {
 }
 
 async function updateChef(id, chef) {
-    const entries = Object.entries(chef).filter(([_, value]) => value !== undefined);
-    const columns = entries.map(([key], idx) => `${key} = $${idx + 1}`);
-    const values = entries.map(([_, value]) => value);
-    values.push(id);
+    const { nombre, acerca_de, especialidad, localidad, imagen_url } = chef;
     const result = await dbClient.query(
-        `UPDATE chefs SET ${columns.join(', ')} WHERE id = $${values.length} RETURNING *`,
-        values
+        `UPDATE chefs SET nombre = $1, acerca_de = $2, especialidad = $3, localidad = $4, imagen_url = $5 WHERE id = $6 RETURNING *`,
+        [nombre, acerca_de, especialidad, localidad, imagen_url, id]
     );
     return result.rows[0];
 }

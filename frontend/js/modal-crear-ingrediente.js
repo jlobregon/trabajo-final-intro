@@ -141,7 +141,7 @@ function modalEditarIngrediente(ingredientes){
                                 <div class="field">
                                     <label class="label">Categoría</label>
                                     <div class="control">
-                                        <input value="${ingrediente.categoria}" class="input" maxlength="50" type="text" name="categoria">
+                                        <input value="${ingrediente.categoria === 'null' || !ingrediente.categoria ? '' : ingrediente.categoria}" class="input" maxlength="50" type="text" name="categoria">
                                     </div>
                                 </div>
                                 <div class="field">
@@ -153,7 +153,7 @@ function modalEditarIngrediente(ingredientes){
                                 <div class="field">
                                     <label class="label">Unidad de Medida<span class="required">*</span></label>
                                     <div class="control">
-                                        <input value="${ingrediente.unidad_medida}" class="input" type="text" name="unidad_medida" maxlength="30" placeholder="Por ejemplo gramos, kilos, etc">
+                                        <input value="${ingrediente.unidad_medida}" class="input" type="text" name="unidad_medida" maxlength="30" placeholder="Por ejemplo gramos, kilos, etc" required>
                                     </div>
                                 </div>
                                 <div class="field">
