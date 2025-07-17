@@ -27,7 +27,7 @@ function modalCrearChef(){
                     modalCuerpo.innerHTML = `
                         <form id="form-crear-chef">
                             <div class="field">
-                                <label class="label">Nombre</label>
+                                <label class="label">Nombre<span class="required">*</span></label>
                                 <div class="control">
                                     <input class="input" maxlength="80" type="text" name="nombre" required>
                                 </div>
@@ -45,7 +45,7 @@ function modalCrearChef(){
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Localidad</label>
+                                <label class="label">Localidad<span class="required">*</span></label>
                                 <div class="control">
                                     <input class="input" maxlength="50" type="text" name="localidad" required>
                                 </div>
@@ -134,7 +134,7 @@ function modalEditarChef(chef){
                         modalCuerpo.innerHTML = `
                             <form id="form-editar-chef">
                                 <div class="field">
-                                    <label class="label">Nombre</label>
+                                    <label class="label">Nombre<span class="required">*</span></label>
                                     <div class="control">
                                         <input value="${chef.nombre}" class="input" maxlength="80" type="text" name="nombre" required>
                                     </div>
@@ -152,7 +152,7 @@ function modalEditarChef(chef){
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label">Localidad</label>
+                                    <label class="label">Localidad<span class="required">*</span></label>
                                     <div class="control">
                                         <input value="${chef.localidad}" class="input" maxlength="50" type="text" name="localidad" required>
                                     </div>

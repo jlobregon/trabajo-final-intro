@@ -24,7 +24,7 @@ function modalCrearIngrediente(){
                     modalCuerpo.innerHTML = `
                         <form id="form-crear-ingrediente">
                             <div class="field">
-                                <label class="label">Nombre</label>
+                                <label class="label">Nombre<span class="required">*</span></label>
                                 <div class="control">
                                     <input class="input" maxlength="80" type="text" name="nombre" required>
                                 </div>
@@ -36,13 +36,13 @@ function modalCrearIngrediente(){
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Calorías Aproximadas</label>
+                                <label class="label">Calorías Aproximadas<span class="required">*</span></label>
                                 <div class="control">
                                     <input class="input" type="number" name="calorias_aprox" required>
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Unidad de Medida</label>
+                                <label class="label">Unidad de Medida<span class="required">*</span></label>
                                 <div class="control">
                                     <input class="input" type="text" name="unidad_medida" maxlength="30" placeholder="Por ejemplo gramos, kilos, etc">
                                 </div>
@@ -133,7 +133,7 @@ function modalEditarIngrediente(ingredientes){
                         modalCuerpo.innerHTML = `
                             <form id="form-editar-ingrediente">
                                 <div class="field">
-                                    <label class="label">Nombre</label>
+                                    <label class="label">Nombre<span class="required">*</span></label>
                                     <div class="control">
                                         <input value="${ingrediente.nombre}" class="input" maxlength="80" type="text" name="nombre" required>
                                     </div>
@@ -145,13 +145,13 @@ function modalEditarIngrediente(ingredientes){
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label">Calorías Aproximadas</label>
+                                    <label class="label">Calorías Aproximadas<span class="required">*</span></label>
                                     <div class="control">
                                         <input value="${ingrediente.calorias_aprox}" class="input" type="number" name="calorias_aprox" required>
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label">Unidad de Medida</label>
+                                    <label class="label">Unidad de Medida<span class="required">*</span></label>
                                     <div class="control">
                                         <input value="${ingrediente.unidad_medida}" class="input" type="text" name="unidad_medida" maxlength="30" placeholder="Por ejemplo gramos, kilos, etc">
                                     </div>
