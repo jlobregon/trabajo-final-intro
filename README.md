@@ -15,7 +15,7 @@ El sitio web cuenta con 3 páginas diferentes sin contar la página de inicio.
 (Pagina de inicio)
 
 Arriba hay un barra de navegacion en donde se puede acceder a las distintas entidades.
-###Recetas:
+### Recetas:
 
 <img width="1596" height="937" alt="Image" src="https://github.com/user-attachments/assets/f109b15a-9277-4a93-8d0f-77f02b90376b" />
 (Pagina de recetas)
@@ -29,6 +29,33 @@ En caso de querer crear una receta, se deberá hacer click sobre el boton verde 
 
 <img width="1758" height="1075" alt="Image" src="https://github.com/user-attachments/assets/8ba64b91-6288-496d-99ac-53606cb1fdbf" />
 (Formulario para crear receta. Es el mismo formulario para la edición de recetas)
+
+### Chefs
+
+<img width="1718" height="1046" alt="Image" src="https://github.com/user-attachments/assets/a8148a03-6494-4464-876c-b6774ac6e497" />
+(Pagina de chefs)
+
+Al hacer click en el boton CREAR CHEF, se abrirá un formulario para rellenar con la información del nuevo chef.
+
+<img width="922" height="871" alt="Image" src="https://github.com/user-attachments/assets/7577db07-d4fc-4e6a-8b5e-619a55f0adfe" />
+(Formulario de nuevo chef)
+
+Al hacer click sobre un chef, redireccionará al usuario al perfil del chef seleccionado, donde se podrá ver toda su información, junto con las recetas que creó. También habrán botones debajo de su nombre para poder borrar o editar la información.
+
+<img width="1770" height="1074" alt="Image" src="https://github.com/user-attachments/assets/0f1871eb-44e9-4975-8230-22dde0706462" />
+(Ejemplo de perfil de chef)
+
+## Ingredientes
+
+Finalmente, al clickear "Nuestra Despensa" en la barra de navegación, nos llevará a una página con una lista de todos los ingredientes cargados. En cada fila de ingrediente, se encuentran los botones para borrar y editar el ingrediente.
+
+<img width="1711" height="1062" alt="Image" src="https://github.com/user-attachments/assets/99b4beb9-1140-4a86-863a-89bc72d59e33" />
+(Lista de ingredientes cargados)
+
+Al tocar en el boton CREAR INGREDIENTE, se abrirá un formulario para rellenar con la información del nuevo ingrediente.
+
+<img width="908" height="802" alt="Image" src="https://github.com/user-attachments/assets/0d55fa08-11c8-45eb-a771-0551fb633568" />
+(Formulario de nuevo ingrediente)
 
 
 ## Instrucciones
