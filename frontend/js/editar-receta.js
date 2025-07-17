@@ -5,7 +5,7 @@ if (!recetaID) {
     location.href = "http://localhost:8080/404.html";
 }
 
-fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
+const chefsPromise = fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
 .then(chefs => {
     const selectChefs = document.getElementById('chef-receta');
 
@@ -17,7 +17,7 @@ fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
     });
 });
 
-fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json())
+const ingredientesPromise = fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json())
 .then(data => {
     return data.sort((a, b) => a.nombre.localeCompare(b.nombre));
 })
@@ -112,8 +112,10 @@ document.getElementById('form-editar-receta').addEventListener('submit', (event)
     });
 });
 
-fetch(`http://localhost:3000/api/v1/recetas/${recetaID}`)
-.then(result => {
+Promise.all([chefsPromise, ingredientesPromise])
+.then(() => {
+    return fetch(`http://localhost:3000/api/v1/recetas/${recetaID}`);
+}).then(result => {
     if (!result.ok) {
         throw new Error(result);
     }
@@ -130,7 +132,11 @@ fetch(`http://localhost:3000/api/v1/recetas/${recetaID}`)
     });
     document.getElementById('categoria-receta').value = receta.categoria;
     document.getElementById('imagen-receta').value = receta.imagen_url;
-    document.getElementById('chef-receta').value = receta.chef_id;
+    document.getElementById('chef-receta').querySelectorAll('option').forEach(chef => {
+        if (parseInt(chef.value) === receta.chef_id) {
+            chef.selected = true;
+        }
+    });
     const ingredientesList = document.getElementById('ingredientes-lista');
     receta.ingredientes.forEach(ingrediente => {
         const newItem = document.createElement('li');
