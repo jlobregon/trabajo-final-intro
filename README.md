@@ -26,3 +26,15 @@
 * node-postgres
     * URL: [https://node-postgres.com/](https://node-postgres.com/)
     * Licencia: [MIT](https://github.com/brianc/node-postgres/blob/master/LICENSE)
+
+* joi
+    * URL: [joi.dev](https://joi.dev/)
+    * Licencia: [BSD](https://github.com/hapijs/joi/blob/master/LICENSE.md)
+
+* cors
+    * URL: [npmjs.com/package/cors](https://www.npmjs.com/package/cors)
+    * Licencia: [MIT](https://github.com/expressjs/cors/blob/master/LICENSE)
+
+* http-server:
+    * URL: [npmjs.com/package/http-server](https://www.npmjs.com/package/http-server)
+    * Licencia: [MIT](https://github.com/http-party/http-server/blob/master/LICENSE)
