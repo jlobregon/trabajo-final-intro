@@ -1,6 +1,6 @@
-# [nombre del proyecto]
+# Las Recetas de Gusteau
 
-## Participantes
+## Participantes (APIcultores)
 * Lisandro Garbarino (113607)
 * Tomás Chirino (113126)
 * José Lisandro Obregon (113792)
