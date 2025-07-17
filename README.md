@@ -7,6 +7,9 @@
 
 ## Descripción
 
+![alt text](https://github.com/jlobregon/trabajo-final-intro/tree/docs/terminar-readme/readme-img/1.png)
+
+
 ## Instrucciones
 Para correr el proyecto se requiere [docker](https://www.docker.com) y [GNU Make](https://www.gnu.org/software/make/) (opcional, se pueden usar `docker` leyendo el Makefile).
 1. Renombrar *.env_example* como *.env*
