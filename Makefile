@@ -40,3 +40,15 @@ restart: stop start
 
 build:
 	docker compose build
+
+inspect-db:
+	docker logs postgres
+
+inspect-backend:
+	docker logs backend
+
+inspect-frontend:
+	docker logs frontend
+
+update-db: stop-db clear-db start-db
+	@echo "Actualizado crack!"
