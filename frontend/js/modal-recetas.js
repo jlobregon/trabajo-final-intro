@@ -63,7 +63,7 @@ function modalesRecetas(recetas){
 
     document.getElementById('boton-borrar-receta').addEventListener('click', () => {
     const recetaId = document.getElementById('modal-receta').dataset.recetaId;
-        if (recetaId) {
+        if (recetaId && confirm('¿Estás seguro de que quieres eliminar esta receta?')) {
             fetch(`http://localhost:3000/api/v1/recetas/${recetaId}`, {
                 method: 'DELETE'
             })
