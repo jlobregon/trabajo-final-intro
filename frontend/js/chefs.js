@@ -1,3 +1,4 @@
+import { modalCrearChef } from './modal-crear-chef.js';
 const contenedorChefs = document.getElementById('contenedor-chefs');
 
 fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
@@ -22,3 +23,4 @@ fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
         }
     }
 );
+modalCrearChef();
