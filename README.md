@@ -7,7 +7,7 @@
 
 ## Descripción
 
-![alt text](https://github.com/jlobregon/trabajo-final-intro/tree/docs/terminar-readme/readme-img/1.png)
+<img width="2560" height="1114" alt="Image" src="https://github.com/user-attachments/assets/6ff6aadb-c2f8-4f4b-9a45-e2022696a106" />
 
 
 ## Instrucciones
