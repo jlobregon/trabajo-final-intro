@@ -6,8 +6,12 @@
 * José Lisandro Obregon (113792)
 
 ## Descripción
+Las Recetas de Gusteau es una página web inspirada en la película Ratatouille en donde el usuario puede ver a los chefs más destacados del restaurant de Gusteau junto con sus recetas características.
+También el usuario puede crear, editar y eliminar las recetas, chefs e ingredientes dentro de la página.
 
+El sitio web cuenta con 3 páginas diferentes sin contar la página de inicio.
 <img width="2560" height="1114" alt="Image" src="https://github.com/user-attachments/assets/6ff6aadb-c2f8-4f4b-9a45-e2022696a106" />
+Página de inicio[^1]
 
 
 ## Instrucciones
