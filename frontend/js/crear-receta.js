@@ -11,6 +11,9 @@ fetch('http://localhost:3000/api/v1/chefs').then(result => result.json())
 });
 
 fetch('http://localhost:3000/api/v1/ingredientes').then(result => result.json())
+.then(data => {
+    return data.sort((a, b) => a.nombre.localeCompare(b.nombre));
+})
 .then(ingredientes => {
     const selectIngredientes = document.getElementById('ingredientes-receta-nueva');
 
