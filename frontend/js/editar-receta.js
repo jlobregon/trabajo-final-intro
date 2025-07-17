@@ -101,6 +101,7 @@ document.getElementById('form-editar-receta').addEventListener('submit', (event)
     .then(data => {
         console.log('Receta editada:', data);
         alert('Receta editada exitosamente');
+        location.href = 'http://localhost:8080/';
     })
     .catch(error => {
         console.error('Error al editar la receta:', error);

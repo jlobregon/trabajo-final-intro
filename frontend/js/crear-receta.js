@@ -93,6 +93,7 @@ document.getElementById('form-crear-receta').addEventListener('submit', (event) 
     .then(data => {
         console.log('Receta creada:', data);
         alert('Receta creada exitosamente');
+        location.href = 'http://localhost:8080/';
     })
     .catch(error => {
         console.error('Error al crear la receta:', error);
