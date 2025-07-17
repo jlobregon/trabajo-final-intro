@@ -8,15 +8,21 @@
 ## Descripción
 
 ## Instrucciones
+Para correr el proyecto se requiere [docker](https://www.docker.com) y [GNU Make](https://www.gnu.org/software/make/) (opcional, se pueden usar `docker` leyendo el Makefile).
 1. Renombrar *.env_example* como *.env*
     * Se pueden modificar las variables de entorno (opcional)
-2. Iniciar los servicios que se desean
-    * Todos los servicios con `make start`
-    * La base de datos por separado con `make start-db`
-    * El backend por separado (requiere la db) con `make start-backend`
+2. Construir las imágenes del backend y frontend con `make build`
+3. Correr el proyecto con `make start`
 
-> [!NOTE]
-> En caso de que sea necesario se puede ejecutar el comando `make clear-db` para que se borre el volumen de la base de datos
+Cuando se quiera detener el proyecto se debe hacer `make stop`, también se lo pude reiniciar (necesario si se realizaron cambios de código en el backend) con `make restart`.
+
+### Otros comandos útiles
+* `make start-db`, `make start-backend` y `make start-frontend` para correr las imagenes por separado (son dependientes, pueden haber fallos)
+* `make stop-db`, `make stop-backend` y `make stop-frontend` para detener los contenedores por separado (son dependientes, pueden haber fallos)
+* `make restart-db`, `make restart-backend` y `make restart-frontend` para detener y volver a correr los contenedores por separado (son dependientes, pueden haber fallos)
+* `make inspect-db`, `make inspect-backend` y `make inspect-frontend` permite ver los logs de los contenedores por separado
+* `make clear-db` borra el volumen de la base de datos y, en consecuencia, los datos que tiene dentro. Esto permite volver a cargar la semilla en *db-init/02_seed.sql*
+* `make update-db` ejecuta `stop-db`, `clear-db` y `start-db` en secuencia. Útil cuando se cambió *db-init* y se quiere cargar esos datos
 
 ## Creditos/Agradecimientos
 * express
