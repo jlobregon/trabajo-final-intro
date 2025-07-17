@@ -15,7 +15,10 @@ El sitio web cuenta con 3 páginas diferentes sin contar la página de inicio.
 (Pagina de inicio)
 
 Arriba hay un barra de navegacion en donde se puede acceder a las distintas entidades.
+
 ### Recetas:
+
+En esta pagina se pueden ver todas las recetas disponibles, junto con su autor.
 
 <img width="1596" height="937" alt="Image" src="https://github.com/user-attachments/assets/f109b15a-9277-4a93-8d0f-77f02b90376b" />
 (Pagina de recetas)
@@ -31,6 +34,8 @@ En caso de querer crear una receta, se deberá hacer click sobre el boton verde 
 (Formulario para crear receta. Es el mismo formulario para la edición de recetas)
 
 ### Chefs
+
+En esta pagina se pueden ver todos los chefs registrados.
 
 <img width="1718" height="1046" alt="Image" src="https://github.com/user-attachments/assets/a8148a03-6494-4464-876c-b6774ac6e497" />
 (Pagina de chefs)
