@@ -77,7 +77,7 @@ function modalCrearChef(){
                         }).then(response => {
                             if (response.ok) {
                                 closeModal(modal);
-                                alert('chef creado exitosamente.');
+                                alert('Chef creado exitosamente.');
                                 location.reload();
                             } else {
                                 throw new Error('Error al crear el chef.');
@@ -140,9 +140,9 @@ function modalEditarChef(chef){
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label">Categoría</label>
+                                    <label class="label">Biografía</label>
                                     <div class="control">
-                                        <input value="${chef.acerca_de}" class="input" maxlength="200" type="text" name="acerca_de">
+                                        <input value="${chef.acerca_de === 'null' || !chef.acerca_de ? '' : chef.acerca_de}" class="input" maxlength="200" type="text" name="acerca_de">
                                     </div>
                                 </div>
                                 <div class="field">
