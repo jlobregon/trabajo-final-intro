@@ -45,12 +45,12 @@
                     <figure class="image is-128x128 is-inline-block tarjeta-imagen">
                         <img id="chef-imagen" class="is-rounded" src="" alt="Foto del chef">
                     </figure>
-                    <p id="chef-localidad" class="title is-5 mt-3"></p>
-                    <button id="boton-editar-chef" class="button is-warning" title="Editar perfil">🖍</button>
+                    <p id="chef-nombre" class="title is-4 mt-3"></p>
                     <button id="boton-borrar-chef" class="button is-danger" title="Borrar perfil">🗑</button>
+                    <button title="Editar" id="editar-chef" class="button is-warning js-modal-trigger" data-chef-id="${chef.id}" data-target="modal-editar-chef">🖋</button>
                 </div>
                 <div class="column is-8">
-                    <p id="chef-nombre" class="box has-text-weight-bold is-size-4"></p>
+                    <p id="chef-localidad" class="box has-text-weight-bold is-size-5"></p>
                     <p id="chef-especialidad" class="box has-text-weight-bold is-size-5 mt-2"></p>
                 </div>
             </div>
@@ -64,6 +64,20 @@
             </div>
         </div>
     </section>
+    <div id="modal-editar-chef" class="modal">
+        <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="modal-editar-chef-titulo">Editar chef</p>
+                        <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body" id="modal-editar-chef-cuerpo"></section>
+                <footer class="modal-card-foot">
+                    <button class="button is-danger">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+    </div>
     <div id="modal-receta" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -73,7 +87,7 @@
             </header>
             <section class="modal-card-body" id="modal-cuerpo"></section>
             <footer class="modal-card-foot">
-                <button class="button is-danger">Editar</button>
+                <button id="boton-editar-receta" class="button is-danger">Editar</button>
                 <button id="boton-borrar-receta" class="button is-danger">Borrar</button>
             </footer>
         </div>
