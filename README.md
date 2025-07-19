@@ -5,6 +5,23 @@
 * Tomás Chirino (113126)
 * José Lisandro Obregon (113792)
 
+## Instrucciones
+Para correr el proyecto se requiere [docker](https://www.docker.com) y [GNU Make](https://www.gnu.org/software/make/) (opcional, se pueden usar `docker` leyendo el Makefile).
+1. Renombrar *.env_example* como *.env*
+    * Se pueden modificar las variables de entorno (opcional)
+2. Construir las imágenes del backend y frontend con `make build`
+3. Correr el proyecto con `make start`
+
+Cuando se quiera detener el proyecto se debe hacer `make stop`, también se lo pude reiniciar (necesario si se realizaron cambios de código en el backend) con `make restart`.
+
+### Otros comandos útiles
+* `make start-db`, `make start-backend` y `make start-frontend` para correr las imagenes por separado (son dependientes, pueden haber fallos)
+* `make stop-db`, `make stop-backend` y `make stop-frontend` para detener los contenedores por separado (son dependientes, pueden haber fallos)
+* `make restart-db`, `make restart-backend` y `make restart-frontend` para detener y volver a correr los contenedores por separado (son dependientes, pueden haber fallos)
+* `make inspect-db`, `make inspect-backend` y `make inspect-frontend` permite ver los logs de los contenedores por separado
+* `make clear-db` borra el volumen de la base de datos y, en consecuencia, los datos que tiene dentro. Esto permite que en el proximo `make start-db` se vuelvan a cargar y ejecutar los archivos en *db-init*
+* `make update-db` ejecuta `stop-db`, `clear-db` y `start-db` en secuencia. Útil cuando se cambió *db-init* y se quiere cargar esos datos
+
 ## Descripción
 Las Recetas de Gusteau es una página web inspirada en la película Ratatouille en donde el usuario puede ver a los chefs más destacados del restaurant de Gusteau junto con sus recetas características.
 También el usuario puede crear, editar y eliminar las recetas, chefs e ingredientes dentro de la página.
@@ -61,24 +78,6 @@ Al tocar en el boton CREAR INGREDIENTE, se abrirá un formulario para rellenar c
 
 <img width="908" height="802" alt="Image" src="https://github.com/user-attachments/assets/0d55fa08-11c8-45eb-a771-0551fb633568" />
 (Formulario de nuevo ingrediente)
-
-
-## Instrucciones
-Para correr el proyecto se requiere [docker](https://www.docker.com) y [GNU Make](https://www.gnu.org/software/make/) (opcional, se pueden usar `docker` leyendo el Makefile).
-1. Renombrar *.env_example* como *.env*
-    * Se pueden modificar las variables de entorno (opcional)
-2. Construir las imágenes del backend y frontend con `make build`
-3. Correr el proyecto con `make start`
-
-Cuando se quiera detener el proyecto se debe hacer `make stop`, también se lo pude reiniciar (necesario si se realizaron cambios de código en el backend) con `make restart`.
-
-### Otros comandos útiles
-* `make start-db`, `make start-backend` y `make start-frontend` para correr las imagenes por separado (son dependientes, pueden haber fallos)
-* `make stop-db`, `make stop-backend` y `make stop-frontend` para detener los contenedores por separado (son dependientes, pueden haber fallos)
-* `make restart-db`, `make restart-backend` y `make restart-frontend` para detener y volver a correr los contenedores por separado (son dependientes, pueden haber fallos)
-* `make inspect-db`, `make inspect-backend` y `make inspect-frontend` permite ver los logs de los contenedores por separado
-* `make clear-db` borra el volumen de la base de datos y, en consecuencia, los datos que tiene dentro. Esto permite que en el proximo `make start-db` se vuelvan a cargar y ejecutar los archivos en *db-init*
-* `make update-db` ejecuta `stop-db`, `clear-db` y `start-db` en secuencia. Útil cuando se cambió *db-init* y se quiere cargar esos datos
 
 ## Creditos/Agradecimientos
 * express
