@@ -42,7 +42,7 @@ build:
 	docker compose build
 
 inspect-db:
-	docker logs postgres
+	docker logs postgresdb
 
 inspect-backend:
 	docker logs backend
@@ -52,3 +52,6 @@ inspect-frontend:
 
 update-db: stop-db clear-db start-db
 	@echo "Actualizado crack!"
+
+clean:
+	docker compose down --rmi all --volumes --remove-orphans
