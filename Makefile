@@ -42,7 +42,7 @@ build:
 	docker compose build
 
 inspect-db:
-	docker logs postgres
+	docker logs postgresdb
 
 inspect-backend:
 	docker logs backend
