@@ -52,3 +52,6 @@ inspect-frontend:
 
 update-db: stop-db clear-db start-db
 	@echo "Actualizado crack!"
+
+clean:
+	docker compose down --rmi all --volumes --remove-orphans
